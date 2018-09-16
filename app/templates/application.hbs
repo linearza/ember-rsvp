@@ -1,0 +1,9 @@
+<h1>Hi, welcome {{name}}!</h1>
+
+<h3>Please user your cellphone number to confirm your rsvp:</h3>
+
+{{input placeholder="Eg. 082 123 4567" value=phoneNumber}}
+
+<button {{action 'checkAndProceed'}}>Proceed</button>
+
+{{outlet}}
