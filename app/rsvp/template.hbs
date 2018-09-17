@@ -1,4 +1,19 @@
-Please RSVP:
+ <ul>
+  <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+</ul>
 
-{{model.name}}<br>
-{{model.phone}}
+<h1>RSVP details</h1>
+
+<h3>Your details:</h3>
+{{currentUser.name}}<br>
+{{currentUser.phone}}
+<br><br>
+
+
+{{#if currentUser.users}}
+  <h3>People in your party:</h3>
+  {{#each currentUser.users as |user|}}
+    {{user.name}} <br>
+  {{/each}}
+{{/if}}
+

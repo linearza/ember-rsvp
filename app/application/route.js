@@ -1,8 +1,14 @@
 import Route from '@ember/routing/route';
+import {
+  inject as service
+} from '@ember/service';
 
 export default Route.extend({
+
+  rsvp: service(),
+
   queryParams: {
-    phoneNumber: {
+    uid: {
       replace: true
     },
     name: {
@@ -12,8 +18,11 @@ export default Route.extend({
 
   setupController(controller, model) {
     this._super(...arguments);
-    if (controller.get('phoneNumber')) {
-      controller.verifyAndAuthenticate();
+
+    this.set('rsvp.applicationController', controller);
+
+    if (controller.get('uid') && !this.get('rsvp.currentUser')) {
+      this.get('rsvp').verifyAndAuthenticate(controller.get('uid'));
     }
   },
 

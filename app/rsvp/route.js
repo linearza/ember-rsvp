@@ -1,31 +1,27 @@
 import Route from '@ember/routing/route';
 
+import {
+  inject as service
+} from '@ember/service';
+
 export default Route.extend({
 
-  model(params) {
-    return this.store.findRecord('user', params.id);
+  rsvp: service(),
 
-    // return this.store.query('user', {
-    //   // Only data for fields whose names are in this list will be included in the records.
-    //   // fields: ['Phone'],
-    //   // A formula used to filter records.
-    //   // filterByFormula: "FIND(" + this.get('phoneNumber') + ", Phone)",
-    //   filterByFormula: "IF({Phone} = " + this.get('phoneNumber') + ", TRUE(), FALSE())",
-    //   // The maximum total number of records that will be returned.
-    //   // maxRecords: 50,
-    //   // The number of records returned in each request.
-    //   // pageSize: 10,
-    //   // A list of sort objects that specifies how the records will be ordered.
-    //   // sort: [{
-    //   //   field: "name",
-    //   //   direction: "desc"
-    //   // }]
-    // });
+  model(params) {
+    // check for currentUser and just return that instead of querying store
+    if (this.get('rsvp.currentUser')) {
+      return this.get('rsvp.currentUser');
+    }
+
+    return this.store.findRecord('user', params.id);
   },
 
   setupController(controller, model) {
     this._super(...arguments);
 
-    debugger;
+    if (!this.get('rsvp.currentUser')) {
+      this.set('rsvp.currentUser', model);
+    }
   }
 });
