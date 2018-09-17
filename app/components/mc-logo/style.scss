@@ -1,0 +1,53 @@
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.mc-logo{
+  font-family: 'Meddon', cursive;
+  position: relative;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  svg{
+    max-width: 90%;
+    height: auto;
+    animation: rotate 100000ms infinite linear;
+  }
+  .names{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    text-align: center;
+    h2{
+      font-weight: 300;
+      font-size: 30px;
+      margin: 0;
+    }
+    .and{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #DCAB2D;
+      width: 100%;
+      left: 0;
+      font-size: 25px;
+      margin-top: 9px;
+    }
+  }
+  @include respond-to($mobile) {
+    .names{
+      h2{
+        font-size: 55px;
+      }
+      .and{
+        font-size: 35px;
+      }
+    }
+  }
+}
