@@ -8,5 +8,13 @@ export default Route.extend({
     name: {
       replace: true
     }
-  }
+  },
+
+  setupController(controller, model) {
+    this._super(...arguments);
+    if (controller.get('phoneNumber')) {
+      controller.verifyAndAuthenticate();
+    }
+  },
+
 });
