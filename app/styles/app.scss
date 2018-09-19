@@ -1,3 +1,5 @@
+@import 'mixins';
+
 html {
   font-size: 100%;
   min-height: 100%;
@@ -5,14 +7,19 @@ html {
 
 body {
   /*background: #232664;*/
-  background: radial-gradient(ellipse at top, #C2F8FD, 30%, #4C6FC1 60%, #385591 90%, #5F4258 100%);
+  background: radial-gradient(ellipse at top, #ffffff -25%, #1296bd 50%, #006dbb 100%);
   color: #fff;
   font-family: sans-serif;
   font-size: 16px;
-
+  @include respond-to($mobile){
+    background: radial-gradient(ellipse at top, #ffffff -10%, #1296bd 50%, #006dbb 100%);
+  }
+  @include respond-to($tablet){
+    background: radial-gradient(ellipse at top, #ffffff -5%, #1296bd 50%, #006dbb 100%);
+  }
 }
 
-@import 'mixins';
+
 
 @import '../components/mc-logo/style';
 @import '../components/x-stars/style';
