@@ -1,10 +1,11 @@
 html {
   font-size: 100%;
+  min-height: 100%;
 }
 
 body {
   /*background: #232664;*/
-  background: radial-gradient(ellipse at top, #232664 0%, #090A0F 100%);
+  background: radial-gradient(ellipse at top, #ffffff 0%, #1296bd 50%, #006dbb 100%);
   color: #fff;
   font-family: sans-serif;
   font-size: 16px;
