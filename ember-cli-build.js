@@ -13,7 +13,8 @@ module.exports = function(defaults) {
     },
 
     fingerprint: {
-      extensions: ['js', 'css', 'map']
+      extensions: ['js', 'css', 'map'],
+      prepend: 'https://raw.github.com/linearza/ember-rsvp/gh-pages/'
     }
     // outputPaths: {
     //   app: {
