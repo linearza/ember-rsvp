@@ -1,0 +1,27 @@
+html {
+  font-size: 100%;
+  // min-height: 100%;
+}
+
+body {
+  /*background: #232664;*/
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+
+// as recommended by ember https://github.com/runspired/ember-hammertime
+[data-ember-action], a, button, input, .link {
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5{
+  font-weight: 600;
+  // font-family: 'Cinzel', serif;
+}

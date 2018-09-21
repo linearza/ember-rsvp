@@ -1,19 +1,22 @@
- <ul>
-  <li>{{#link-to 'index'}}Home{{/link-to}}</li>
-</ul>
+<div class="rsvp-container">
 
-<h1>RSVP details</h1>
+  <ul>
+    <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+  </ul>
 
-<h3>Your details:</h3>
-{{currentUser.name}}<br>
-{{currentUser.phone}}
-<br><br>
+  <h1>RSVP details</h1>
+
+  <h3>Your details:</h3>
+  {{currentUser.name}}<br>
+  {{currentUser.phone}}
+  <br><br>
 
 
-{{#if currentUser.users}}
-  <h3>People in your party:</h3>
-  {{#each currentUser.users as |user|}}
-    {{user.name}} <br>
-  {{/each}}
-{{/if}}
+  {{#if currentUser.users}}
+    <h3>People in your party:</h3>
+    {{#each currentUser.users as |user|}}
+      {{user.name}} <br>
+    {{/each}}
+  {{/if}}
 
+</div>

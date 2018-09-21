@@ -11,8 +11,17 @@ export default Service.extend({
   currentUser: null, // once authenticated we set them here for the duration of the session
   applicationController: null,
 
+  error: null,
+
   verifyAndAuthenticate(uid) {
     var _this = this;
+
+    this.set('error', null);
+
+    if (!uid) {
+      return this.set('error', 'Please fill in a number');
+    }
+
 
     // some simple formatting to normalize uid
     uid = uid.replace(/[- )(]/g, '');
@@ -41,9 +50,11 @@ export default Service.extend({
           uid: null
         });
         _this.get('router').transitionTo('rsvp', res.content[0].id);
+      } else {
+        _this.set('error', 'Unfortunately this number is not on our list');
       }
     }).catch((e) => {
-      console.log('error! log out message for user');
+      _this.set('error', 'Sorry, we probably dont have this number');
     });
   },
 

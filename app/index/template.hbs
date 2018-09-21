@@ -1,24 +1,28 @@
 {{mc-logo}}
 
+<div class="rsvp-container">
 
-{{#if currentUser}}
-
-  <ul>
-    <li>{{#link-to 'rsvp' currentUser.id}}RSVP{{/link-to}}</li>
-  </ul>
-
-  <h1>Welcome back {{name}}!</h1>
-  <h3>You are currently verified, so feel free to update your rsvp details or just browse around.</h3>
-
-{{else}}
-  <h1>Hi, welcome {{name}}!</h1>
-  <h3>Please user your cellphone number to confirm your rsvp:</h3>
-
-  {{input placeholder="Eg. 082 123 4567" value=uid}}
-
-  <button {{action 'verifyAndAuthenticate' uid target=rsvp}}>Proceed</button>
-{{/if}}
+  {{x-login uid=uid}}
 
 
+{{!--   {{#if currentUser}}
 
-{{x-stars}}
+    <ul>
+      <li>{{#link-to 'rsvp' currentUser.id}}RSVP{{/link-to}}</li>
+    </ul>
+
+    <h1>Welcome back {{name}}!</h1>
+    <h3>You are currently verified, so feel free to update your rsvp details or just browse around.</h3>
+
+  {{else}}
+    <h1>Hi, welcome {{name}}!</h1>
+    <h3>Please user your cellphone number to confirm your rsvp:</h3>
+
+
+  {{/if}}
+ --}}
+
+
+</div>
+
+

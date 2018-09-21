@@ -6,11 +6,11 @@ module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
 
-    // sassOptions: {
-    //   includePaths: [
-    //     'app'
-    //   ]
-    // },
+    sassOptions: {
+      includePaths: [
+        'app'
+      ]
+    },
 
     // outputPaths: {
     //   app: {
