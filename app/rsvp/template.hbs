@@ -10,7 +10,7 @@
     <p>At <b>{{event.locationName}}</b> - <u><a href="{{event.locationLink}}" target="_blank">Directions</a></u></p>
 
     {{#x-check
-      checked=(array-contains currentUser.attendingEvents event) onChange=(action 'toggleEvent' currentUser event)
+      checked=(array-contains currentUser.attendingEvents event) onChange=(action 'toggleEvent' currentUser event target=rsvp)
     }}
       {{currentUser.name}}
     {{/x-check}}
@@ -20,7 +20,7 @@
       <div class="x-check-list">
         {{#each currentUser.party as |member|}}
           {{#x-check
-            checked=(array-contains member.attendingEvents event) onChange=(action 'toggleEvent' member event)
+            checked=(array-contains member.attendingEvents event) onChange=(action 'toggleEvent' member event target=rsvp)
           }}
             {{member.name}}
           {{/x-check}}
@@ -50,6 +50,6 @@
 
   <br><br><br><br>
 
-  <button class="btn" {{action 'saveCurrentUser' target=rsvp}}>RSVP</button>
+  <button class="btn" {{action 'saveCurrentUser' target=rsvp}}>Save</button>
 
 </div>

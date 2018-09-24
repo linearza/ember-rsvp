@@ -80,6 +80,14 @@ export default Service.extend({
     });
   },
 
+  toggleEvent(user, event) {
+    if (user.get('attendingEvents').includes(event)) {
+      user.get('attendingEvents').removeObject(event);
+    } else {
+      user.get('attendingEvents').pushObject(event);
+    }
+  },
+
   unauthenticate() {
     this.set('currentUser', null);
     this.get('router').transitionTo('index');
@@ -92,6 +100,10 @@ export default Service.extend({
 
     saveCurrentUser() {
       this.saveCurrentUser();
+    },
+
+    toggleEvent(user, event) {
+      this.toggleEvent(user, event)
     },
 
     unauthenticate() {

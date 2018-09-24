@@ -8,11 +8,5 @@ import {
 
 export default Controller.extend({
   rsvp: service(),
-  currentUser: alias('rsvp.currentUser'),
-
-  actions: {
-    toggleEvent(user, event) {
-      user.get('attendingEvents').pushObject(event);
-    }
-  }
+  currentUser: alias('rsvp.currentUser')
 });
