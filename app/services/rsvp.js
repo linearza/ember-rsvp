@@ -2,6 +2,9 @@ import Service from '@ember/service';
 import {
   inject as service
 } from '@ember/service';
+import {
+  run
+} from '@ember/runloop';
 
 export default Service.extend({
 
@@ -51,6 +54,9 @@ export default Service.extend({
           uid: null
         });
         _this.get('router').transitionTo('rsvp', res.content[0].id);
+        run.next(() => {
+          $('body').scrollTop(0);
+        });
       } else {
         _this.set('error', 'Unfortunately this number is not on our list.');
       }

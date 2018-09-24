@@ -7,6 +7,7 @@
   {{#each currentUser.invitedEvents as |event|}}
     <h3>{{event.name}}</h3>
     <p>Taking place on: <b>{{event.date}}</b></p>
+    <p>At <b>{{event.locationName}}</b> - <u><a href="{{event.locationLink}}" target="_blank">Directions</a></u></p>
 
     {{#x-check
       checked=(array-contains currentUser.attendingEvents event) onChange=(action 'toggleEvent' currentUser event)
