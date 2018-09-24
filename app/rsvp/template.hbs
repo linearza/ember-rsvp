@@ -2,10 +2,10 @@
   <h1>Oh hello, {{currentUser.firstName}}!</h1>
 
   <p>We do hope that you will be able to celebrate with us!</p>
-  <br>
+
   {{#each currentUser.invitedEvents as |event|}}
     <h3>{{event.name}}</h3>
-    <p>Taking place on: <b>{{event.date}}</b></p>
+    <p>Taking place on: <b>{{moment-format event.date 'MMMM Do YYYY'}}</b></p>
     <p>At <b>{{event.locationName}}</b> - <u><a href="{{event.locationLink}}" target="_blank">Directions</a></u></p>
 
     {{#x-check
@@ -15,7 +15,7 @@
     {{/x-check}}
 
     {{#if currentUser.party}}
-      <h4>You can also rsvp for the following people:</h4>
+      <h4>You can also RSVP for the following people:</h4>
       <div class="x-check-list">
         {{#each currentUser.party as |member|}}
           {{#x-check
