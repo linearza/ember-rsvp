@@ -19,7 +19,7 @@ export default Service.extend({
     this.set('error', null);
 
     if (!uid) {
-      return this.set('error', 'Please fill in a number');
+      return this.set('error', 'Sorry, you will have to fill in your number.');
     }
 
 
@@ -29,9 +29,9 @@ export default Service.extend({
 
     let userId = this.store.query('user', {
       // Only data for fields whose names are in this list will be included in the records.
-      fields: ['phone', 'name'],
+      fields: ['phoneNumber', 'firstName'],
       // A formula used to filter records.
-      filterByFormula: '{phone} = "' + uid + '"',
+      filterByFormula: '{phoneNumber} = "' + uid + '"',
       // filterByFormula: "SEARCH(" + this.get('phoneNumber') + ", {Phone})",
       // The maximum total number of records that will be returned.
       // maxRecords: 50,
@@ -51,16 +51,30 @@ export default Service.extend({
         });
         _this.get('router').transitionTo('rsvp', res.content[0].id);
       } else {
-        _this.set('error', 'Unfortunately this number is not on our list');
+        _this.set('error', 'Unfortunately this number is not on our list.');
       }
     }).catch((e) => {
-      _this.set('error', 'Sorry, we probably dont have this number');
+      _this.set('error', 'Sorry! We probably dont have this number or you made a mistake.');
     });
+  },
+
+  saveCurrentUser() {
+    this.get('currentUser.users').forEach((user) => {
+      user.save();
+    });
+
+    this.get('currentUser').save().then(() => {
+      console.log('saved!');
+    })
   },
 
   actions: {
     verifyAndAuthenticate(uid) {
       this.verifyAndAuthenticate(uid);
+    },
+
+    saveCurrentUser() {
+      this.saveCurrentUser();
     }
   }
 

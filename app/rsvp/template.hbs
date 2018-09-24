@@ -1,22 +1,25 @@
 <div class="rsvp-container">
+  <h1>Hello, {{currentUser.firstName}}</h1>
 
-  <ul>
-    <li>{{#link-to 'index'}}Home{{/link-to}}</li>
-  </ul>
+  <p>We do hope that you will be able to celebrate with us!</p>
 
-  <h1>RSVP details</h1>
+  <h3>Please RSVP on behalf of the following people:</h3>
 
-  <h3>Your details:</h3>
-  {{currentUser.name}}<br>
-  {{currentUser.phone}}
-  <br><br>
+  {{#x-check
+    checked=member.isComing onChange=(action 'toggleEvent')
+  }}
+    {{currentUser.name}}
+  {{/x-check}}
 
+  <br>
 
-  {{#if currentUser.users}}
+  {{#if currentUser.party}}
     <h3>People in your party:</h3>
-    {{#each currentUser.users as |user|}}
-      {{user.name}} <br>
+    {{#each currentUser.party as |member|}}
+      {{member.name}} - {{x-check checked=member.isComing onChange=(action 'toggleEvent')}}<br>
     {{/each}}
   {{/if}}
+
+  <button class="btn" {{action 'saveCurrentUser' target=rsvp}}>RSVP</button>
 
 </div>

@@ -1,28 +1,21 @@
-{{mc-logo}}
-
-<div class="rsvp-container">
-
-  {{x-login uid=uid}}
 
 
-{{!--   {{#if currentUser}}
 
-    <ul>
-      <li>{{#link-to 'rsvp' currentUser.id}}RSVP{{/link-to}}</li>
-    </ul>
 
-    <h1>Welcome back {{name}}!</h1>
-    <h3>You are currently verified, so feel free to update your rsvp details or just browse around.</h3>
 
+  {{#if currentUser}}
+    <div class="rsvp-container">
+      <h1>Welcome, {{currentUser.firstName}}!</h1>
+      <p>We look forward to spending time with you.</p>
+      <p>You can find the relevant information in the menu at the top.</p>
+    </div>
   {{else}}
-    <h1>Hi, welcome {{name}}!</h1>
-    <h3>Please user your cellphone number to confirm your rsvp:</h3>
-
-
+    {{mc-logo}}
+    <div class="rsvp-container">
+      {{x-login uid=uid}}
+    </div>
   {{/if}}
- --}}
 
 
-</div>
 
 

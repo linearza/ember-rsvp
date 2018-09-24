@@ -1,0 +1,51 @@
+.btn, a.btn{
+  border: 1px solid transparent;
+  display: inline-block;
+  padding: 14px 24px;
+  user-select: none;
+  outline: 0;
+  white-space: nowrap;
+  cursor: pointer;
+  line-height: 1em;
+  background: $gold;
+  font-weight: 700;
+  color: $white;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 4px;
+  position: relative;
+
+  // disabled
+  &.-d, &.disabled{
+    opacity: 0.35;
+  }
+
+
+  // outline
+  &.-o{
+    background: transparent;
+    color: $gold;
+    border-color: $gold;
+    svg {
+      fill: $gold;
+    }
+  }
+
+
+  // sizes
+  &.s-s{
+    font-size: 15px;
+    padding: 10px 10px 9px;
+    min-width: 36px; // square
+    > svg {
+      max-width: 12px;
+      max-height: 12px;
+      &.left{
+        margin-right: 6px;
+      }
+      &.right{
+        margin-left: 6px;
+      }
+    }
+  }
+}

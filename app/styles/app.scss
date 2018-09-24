@@ -1,9 +1,13 @@
 @import 'normalize';
 @import 'mixins';
+@import 'colors';
 @import 'root';
 @import 'containers';
+@import 'buttons';
 
 @import '../components/mc-logo/style';
 @import '../components/x-stars/style';
 @import '../components/x-login/style';
+@import '../components/x-menu/style';
+@import '../components/x-check/style';
 

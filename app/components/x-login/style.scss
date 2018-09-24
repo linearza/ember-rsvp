@@ -2,28 +2,41 @@
   margin: 0 auto;
   width: 100%;
   max-width: 420px;
+  // border: 1px solid #e2e2e2;
+  border-radius: 4px;
   input, button{
     display: inline-block;
     border: 1px solid white;
-    padding: 12px;
-    outline-color: white;
+    outline: none;
   }
   input{
+    color: #d0a40a;
     border-radius: 4px 0 0 4px;
+    padding: 12px 8px 12px 20px;
     width: 60%;
+    outline: 0;
+    transition: box-shadow 100ms linear, border-color 100ms linear;
+    &:active, &:focus{
+      box-shadow: 0 0px 12px 0 rgba(255, 255, 255, 0.93);
+      border-color: #fff;
+    }
     &::placeholder{
       color: #ccc;
     }
   }
   button{
-    background: blue;
     border-radius: 0 4px 4px 0;
+    padding: 12px 20px;
     width: 40%;
     margin-left: -5px;
-    background: rgba(255,255,255,0.5);
+    background: $gold;
     color: white;
+    font-weight: 700;
+    box-shadow: 0;
+    transition: box-shadow 100ms linear, border-color 100ms linear;
     &:hover{
-      background: rgba(255,255,255,0.3);
+      box-shadow: 0 0px 12px 0 rgba(255, 164, 0, 0.93);
+      border-color: #ffb900;
     }
   }
   .error{

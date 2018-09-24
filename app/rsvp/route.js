@@ -15,6 +15,10 @@ export default Route.extend({
     }
 
     return this.store.findRecord('user', params.id);
+    // return {
+    //   firstName: 'Michiel',
+    //   phoneNumber: '0824519392'
+    // }
   },
 
   setupController(controller, model) {

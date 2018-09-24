@@ -10,6 +10,9 @@ Router.map(function() {
   this.route('rsvp', {
     path: 'rsvp/:id'
   });
+  this.route('page', {
+    path: 'page/:id'
+  });
 });
 
 export default Router;

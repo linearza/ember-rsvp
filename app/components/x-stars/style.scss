@@ -6,24 +6,15 @@
   left: 0;
   right: 0;
   &:after{
-    content: '';
+    content: "";
     position: absolute;
-    left:0;
+    left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     z-index: 1;
-    background: radial-gradient(ellipse at top, #ffffff -25%, rgba(13, 190, 243, 0.8) 50%, rgba(8, 139, 232, 0.8) 100%);
-  }
-  @include respond-to($mobile){
-    &:after{
-      background: radial-gradient(ellipse at top, #ffffff -10%, rgba(13, 190, 243, 0.8) 50%, rgba(8, 139, 232, 0.8) 100%);
-    }
-  }
-  @include respond-to($tablet){
-    &:after{
-      background: radial-gradient(ellipse at top, #ffffff -5%, rgba(13, 190, 243, 0.8) 50%, rgba(8, 139, 232, 0.8) 100%);
-    }
+    opacity: 0.88;
+    background: radial-gradient(ellipse at top, #ffffff -5%, #2c8ace 52%, #030e5a 100%);
   }
 
   .stars, .twinkling {
@@ -37,7 +28,7 @@
     display:block;
   }
   .stars {
-    background:#000 url('/images/stars.png') repeat top center;
+    background:#000 url('/images/stars2.png') repeat top center;
     z-index:0;
   }
   .twinkling{

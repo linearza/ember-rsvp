@@ -26,43 +26,85 @@
     text-align: center;
     h2{
       font-weight: 300;
-      font-size: 30px;
+      font-size: 32px;
       margin: 0;
       line-height: 2;
       font-family: 'Meddon', cursive;
+      // color: #e2e2e2;
       // text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
     .and{
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      color: #f3c44c;
+      color: $gold;
+      text-shadow: 0px 0px 6px #b9a87a;
       width: 100%;
       left: 0;
-      font-size: 25px;
+      font-size: 20px;
       margin-top: 9px;
       font-family: 'Meddon', cursive;
       // text-shadow:0 0px 10px rgba(255, 165, 0, 0.78);
       // text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
   }
-  @include respond-to($mobile) {
-    .names{
-      h2{
-        font-size: 40px;
+  &:not(.mini)  {
+    @include respond-to(380) {
+      .names{
+        h2{
+          font-size: 40px;
+        }
+        .and{
+          font-size: 28px;
+        }
       }
-      .and{
-        font-size: 28px;
+    }
+    @include respond-to(490) {
+      .names{
+        h2{
+          font-size: 55px;
+        }
+        .and{
+          font-size: 35px;
+        }
       }
     }
   }
-  @include respond-to($tablet) {
-    .names{
+  &.mini{
+    max-width: 130px;
+    padding: 0;
+    // &:after{
+    //   content: 'C&M';
+    //   font-size: 8px;
+    //   position: absolute;
+    //   white-space: nowrap;
+    //   top: 50%;
+    //   width: 100%;
+    //   transform: translateY(-50%);
+    //   text-align: center;
+    //   left: 0;
+    //   font-family: 'Meddon', cursive;
+    // }
+    // .names, .and {
+    //   display: none;
+    // }
+    .names {
       h2{
-        font-size: 55px;
+        font-size: 13px;
       }
       .and{
-        font-size: 35px;
+        font-size: 8px;
+        margin-top: 3px;
+        text-shadow: none;
+      }
+    }
+    svg {
+      animation-duration: 35000ms;
+      path{
+        stroke-width: 14;
+      }
+      path.gold-thread {
+        stroke-width: 6;
       }
     }
   }

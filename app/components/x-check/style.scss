@@ -1,0 +1,55 @@
+.x-check{
+  position: relative;
+  display: inline-block;
+  padding-left: 50px;
+  cursor: pointer;
+  &::selection {
+    background: transparent;
+  }
+
+  input {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    + span {
+      position: absolute;
+      left: 0;
+      background: $white;
+      // border: 1px solid $grey-very-light-grey;
+      border-radius: 4px;
+      // content: "";
+      padding: 0;
+      vertical-align: middle;
+      width: 30px;
+      height: 30px;
+      transform: translate3d(0, 0, 0);
+      transition: background-color 100ms;
+      -webkit-backface-visibility: hidden;
+      &:after {
+        content: "";
+        background: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12"><path fill="#FFF" fill-rule="evenodd" d="M6.137 12L0 5.891l2.192-2.182 3.945 3.927L13.808 0 16 2.182z"/></svg>') no-repeat center;
+        display: block;
+        transform: scale(0);
+        transition: transform 100ms 100ms;
+        background-size: contain;
+        width: 16px;
+        height: 16px;
+        margin: 8px auto;
+      }
+    }
+    &:checked{
+      + span {
+        background: $gold;
+        border-color: $gold;
+        &:after {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+  .label{
+    padding-top: 6px;
+    padding-bottom: 4px;
+    display: inline-block;
+  }
+}
