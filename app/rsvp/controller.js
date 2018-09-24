@@ -11,8 +11,8 @@ export default Controller.extend({
   currentUser: alias('rsvp.currentUser'),
 
   actions: {
-    toggleEvent() {
-
+    toggleEvent(user, event) {
+      user.get('attendingEvents').pushObject(event);
     }
   }
 });

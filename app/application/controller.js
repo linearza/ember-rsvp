@@ -5,6 +5,7 @@ import {
 
 export default Controller.extend({
   rsvp: service(),
+  flashMessages: service(),
 
   queryParams: {
     uid: {},

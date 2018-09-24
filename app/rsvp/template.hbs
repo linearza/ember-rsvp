@@ -1,24 +1,53 @@
 <div class="rsvp-container">
-  <h1>Hello, {{currentUser.firstName}}</h1>
+  <h1>Oh hello, {{currentUser.firstName}}!</h1>
 
   <p>We do hope that you will be able to celebrate with us!</p>
 
-  <h3>Please RSVP on behalf of the following people:</h3>
+  <h2>Please RSVP below:</h2>
+  {{#each currentUser.invitedEvents as |event|}}
+    <h3>{{event.name}}</h3>
+    <p>Taking place on: <b>{{event.date}}</b></p>
 
+    {{#x-check
+      checked=(array-contains currentUser.attendingEvents event) onChange=(action 'toggleEvent' currentUser event)
+    }}
+      {{currentUser.name}}
+    {{/x-check}}
+
+    {{#if currentUser.party}}
+      <h4>You can also rsvp for the following people:</h4>
+      <div class="x-check-list">
+        {{#each currentUser.party as |member|}}
+          {{#x-check
+            checked=(array-contains member.attendingEvents event) onChange=(action 'toggleEvent' member event)
+          }}
+            {{member.name}}
+          {{/x-check}}
+          <br><br>
+        {{/each}}
+      </div>
+    {{/if}}
+
+  {{/each}}
+
+
+{{!--
+  <br>
+  <h3>Please RSVP below:</h3>
   {{#x-check
     checked=member.isComing onChange=(action 'toggleEvent')
   }}
     {{currentUser.name}}
   {{/x-check}}
 
-  <br>
-
   {{#if currentUser.party}}
-    <h3>People in your party:</h3>
+    <p><b>You can also rsvp for the following people:</b></p>
     {{#each currentUser.party as |member|}}
       {{member.name}} - {{x-check checked=member.isComing onChange=(action 'toggleEvent')}}<br>
     {{/each}}
-  {{/if}}
+  {{/if}} --}}
+
+  <br><br><br><br>
 
   <button class="btn" {{action 'saveCurrentUser' target=rsvp}}>RSVP</button>
 

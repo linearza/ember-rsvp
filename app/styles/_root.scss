@@ -21,7 +21,20 @@ body {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5{
-  font-weight: 600;
+h1{
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-size: 3em;
+  margin: 0.5em 0;
   // font-family: 'Cinzel', serif;
+}
+
+h2, h3, h4, h5{
+  font-weight: 600;
+  margin-top: 2em;
+  // font-family: 'Cinzel', serif;
+}
+
+b{
+  font-weight: 600;
 }

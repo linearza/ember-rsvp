@@ -9,12 +9,19 @@ export default DS.Model.extend({
   phoneNumber: DS.attr(),
 
   party: DS.hasMany('user'),
-  invitedEvents: DS.hasMany('events'),
+  invitedEvents: DS.hasMany('event', {
+    async: true,
+    inverse: null
+  }),
+  attendingEvents: DS.hasMany('event', {
+    async: true,
+    inverse: null
+  }),
 
   notes: DS.attr(),
   dietaryRequirements: DS.attr(),
 
   name: computed('firstName', 'lastName', function() {
-    return this.get('firstName') + ' ' + this.get('lastName');
+    return this.get('firstName') + ' ' + (this.get('lastName') || '');
   })
 });

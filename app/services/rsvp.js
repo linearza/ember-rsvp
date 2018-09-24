@@ -7,6 +7,7 @@ export default Service.extend({
 
   store: service(),
   router: service(),
+  flashMessages: service(),
 
   currentUser: null, // once authenticated we set them here for the duration of the session
   applicationController: null,
@@ -59,13 +60,23 @@ export default Service.extend({
   },
 
   saveCurrentUser() {
-    this.get('currentUser.users').forEach((user) => {
-      user.save();
+    var _this = this;
+
+    this.get('currentUser.party').forEach((member) => {
+      member.save();
     });
 
     this.get('currentUser').save().then(() => {
       console.log('saved!');
-    })
+      _this.get('flashMessages').success('Successfully saved!');
+    }).catch(() => {
+      _this.get('flashMessages').danger('Oops! Something went wrong!');
+    });
+  },
+
+  unauthenticate() {
+    this.set('currentUser', null);
+    this.get('router').transitionTo('index');
   },
 
   actions: {
@@ -75,6 +86,10 @@ export default Service.extend({
 
     saveCurrentUser() {
       this.saveCurrentUser();
+    },
+
+    unauthenticate() {
+      this.unauthenticate();
     }
   }
 
