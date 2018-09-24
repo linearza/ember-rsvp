@@ -2,8 +2,7 @@
   <h1>Oh hello, {{currentUser.firstName}}!</h1>
 
   <p>We do hope that you will be able to celebrate with us!</p>
-
-  <h2>Please RSVP below:</h2>
+  <br>
   {{#each currentUser.invitedEvents as |event|}}
     <h3>{{event.name}}</h3>
     <p>Taking place on: <b>{{event.date}}</b></p>
