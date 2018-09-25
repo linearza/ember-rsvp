@@ -1,14 +1,21 @@
 <div class="rsvp-container">
-  <h1>Oh hello, {{currentUser.firstName}}!</h1>
+  <h1>Hey, {{currentUser.firstName}}!</h1>
 
-  <p>We do hope that you will be able to celebrate with us!</p>
+  <p>In celebration of you lighting up our life, it is our pleasure to invite you to our engagement party!</p>
 
   {{#each currentUser.invitedEvents as |event|}}
     <h3>{{event.name}}</h3>
-    <p>Taking place on: <b>{{moment-format event.date 'MMMM Do YYYY'}}</b></p>
-    <p>At <b>{{event.locationName}}</b> - <u><a href="{{event.locationLink}}" target="_blank">Directions</a></u></p>
+    <p><b>Date:</b> {{moment-format event.date 'MMMM Do YYYY'}}</p>
+    <p><b>Time:</b> {{event.time}} <br>
+    (Come light up the room as your schedule allows – there are no formal proceedings)
+    </p>
+    <p><b>Place:</b> {{event.locationName}} (<a href="{{event.locationLink}}" target="_blank">Directions</a>)</p>
 
-    <h4>Please RSVP for the following people:</h4>
+    <p><b>Dresscode:</b> {{event.dressCode}} </p>
+
+    <p><i>Light snacks and drinks will be served.</i></p>
+
+    <h4>Please RSVP for all the members listed in your party here:</h4>
     <div class="x-check-list">
       {{#x-check
         checked=(array-contains currentUser.attendingEvents event) onChange=(action 'toggleEvent' currentUser event target=rsvp)
@@ -25,29 +32,15 @@
         <br><br>
       {{/each}}
     </div>
-
-
   {{/each}}
-
-
-{{!--
-  <br>
-  <h3>Please RSVP below:</h3>
-  {{#x-check
-    checked=member.isComing onChange=(action 'toggleEvent')
-  }}
-    {{currentUser.name}}
-  {{/x-check}}
-
-  {{#if currentUser.party}}
-    <p><b>You can also rsvp for the following people:</b></p>
-    {{#each currentUser.party as |member|}}
-      {{member.name}} - {{x-check checked=member.isComing onChange=(action 'toggleEvent')}}<br>
-    {{/each}}
-  {{/if}} --}}
 
   <br><br><br><br>
 
   <button class="btn" {{action 'saveCurrentUser' target=rsvp}}>Save</button>
+
+  <br><br><br><br>
+
+  <p><i>“We cannot hold a torch to light another’s path without brightening our own.”
+  <br>Ben Sweetland</i></p>
 
 </div>
