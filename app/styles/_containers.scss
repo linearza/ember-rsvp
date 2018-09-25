@@ -3,4 +3,7 @@
   margin: 0 auto;
   padding: 24px;
   text-align: center;
+  &.content{
+    background: rgba(0,0,0,0.07);
+  }
 }
