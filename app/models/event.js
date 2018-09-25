@@ -2,7 +2,11 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   name: DS.attr(),
-  invitees: DS.hasMany('user'),
+  invitees: DS.hasMany('user', {
+    async: true,
+    inverse: null
+  }),
+
   description: DS.attr(),
   date: DS.attr(),
   time: DS.attr(),

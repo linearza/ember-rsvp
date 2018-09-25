@@ -25,10 +25,10 @@ export default Route.extend({
   setupController(controller, model) {
     this._super(...arguments);
 
-    if (!model.get('hasLoggedIn')) {
-      model.set('hasLoggedIn', true);
-      model.save();
-    }
+    // if (!model.get('hasLoggedIn')) {
+    //   model.set('hasLoggedIn', true);
+    //   model.save();
+    // }
 
     if (!this.get('rsvp.currentUser')) {
       this.set('rsvp.currentUser', model);
