@@ -15,6 +15,7 @@ export default Route.extend({
     }
 
     return this.store.findRecord('user', params.id);
+
     // return {
     //   firstName: 'Michiel',
     //   phoneNumber: '0824519392'
@@ -23,6 +24,11 @@ export default Route.extend({
 
   setupController(controller, model) {
     this._super(...arguments);
+
+    if (!model.get('hasLoggedIn')) {
+      model.set('hasLoggedIn', true);
+      model.save();
+    }
 
     if (!this.get('rsvp.currentUser')) {
       this.set('rsvp.currentUser', model);
