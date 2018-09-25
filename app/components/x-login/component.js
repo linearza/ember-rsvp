@@ -8,7 +8,7 @@ import {
 } from '@ember/object/computed';
 
 export default Component.extend({
-  classNames: ['x-login'],
+  classNameBindings: [':x-login'],
 
   rsvp: service(),
   currentUser: alias('rsvp.currentUser')

@@ -16,7 +16,7 @@ export default Route.extend({
     }
   },
 
-  setupController(controller, model) {
+  setupController(controller) {
     this._super(...arguments);
 
     this.set('rsvp.applicationController', controller);
@@ -24,6 +24,6 @@ export default Route.extend({
     if (controller.get('uid') && !this.get('rsvp.currentUser')) {
       this.get('rsvp').verifyAndAuthenticate(controller.get('uid'));
     }
-  },
+  }
 
 });

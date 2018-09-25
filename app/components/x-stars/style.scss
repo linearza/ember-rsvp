@@ -14,7 +14,7 @@
     bottom: 0;
     z-index: 1;
     opacity: 0.88;
-    background: radial-gradient(ellipse at top, #ffffff -5%, #2c8ace 52%, #030e5a 100%);
+    background: radial-gradient(ellipse at top, #ffffff -5%, #66bfff 52%, #030e5a 100%);
   }
 
   .stars, .twinkling {
@@ -34,11 +34,11 @@
   .twinkling{
     background:transparent url('/images/twinkling.png') repeat top center;
     z-index:1;
-    -moz-animation:move-twink-back 500s linear infinite;
-    -ms-animation:move-twink-back 500s linear infinite;
-    -o-animation:move-twink-back 500s linear infinite;
-    -webkit-animation:move-twink-back 500s linear infinite;
-    animation:move-twink-back 500s linear infinite;
+    -moz-animation:move-twink-back 400s linear infinite;
+    -ms-animation:move-twink-back 400s linear infinite;
+    -o-animation:move-twink-back 400s linear infinite;
+    -webkit-animation:move-twink-back 400s linear infinite;
+    animation:move-twink-back 400s linear infinite;
   }
 
 }

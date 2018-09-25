@@ -14,6 +14,7 @@
     border-radius: 4px 0 0 4px;
     padding: 12px 8px 12px 20px;
     width: 60%;
+    font-weight: 600;
     outline: 0;
     transition: box-shadow 100ms linear, border-color 100ms linear;
     &:active, &:focus{
@@ -21,7 +22,8 @@
       border-color: #fff;
     }
     &::placeholder{
-      color: #ccc;
+      color: #a9a9a9;
+      font-weight: 300;
     }
   }
   button{
@@ -29,14 +31,16 @@
     padding: 12px 20px;
     width: 40%;
     margin-left: -5px;
-    background: $gold;
+    background: #d4a820;
     color: white;
     font-weight: 700;
     box-shadow: 0;
     transition: box-shadow 100ms linear, border-color 100ms linear;
     &:hover{
-      box-shadow: 0 0px 12px 0 rgba(255, 164, 0, 0.93);
-      border-color: #ffb900;
+      box-shadow: 0 0px 12px 0 rgba(255, 219, 145, 0.93);
+    }
+    &.disabled{
+      background: #d2d2d2;
     }
   }
   .error{

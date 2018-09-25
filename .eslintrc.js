@@ -15,6 +15,12 @@ module.exports = {
     browser: true
   },
   rules: {
+    "no-console": 0,
+    "comma-dangle": 1,
+    "no-extra-semi": 1,
+    "no-extra-boolean-cast": 1,
+    "no-mixed-spaces-and-tabs": 1,
+    "no-useless-escape": 1
   },
   overrides: [
     // node files
@@ -35,5 +41,11 @@ module.exports = {
         node: true
       }
     }
-  ]
+  ],
+  globals: {
+    document: true,
+    window: true,
+    $: true,
+    moment: true
+  }
 };

@@ -17,8 +17,15 @@ export default Service.extend({
 
   error: null,
 
+  verifying: false,
+  saving: false,
+
   verifyAndAuthenticate(uid) {
     var _this = this;
+
+    if (this.get('verifying')) {
+      return;
+    }
 
     this.set('error', null);
 
@@ -26,16 +33,17 @@ export default Service.extend({
       return this.set('error', 'Sorry, you will have to fill in your number.');
     }
 
+    this.set('verifying', true);
 
     // some simple formatting to normalize uid
     uid = uid.replace(/[- )(]/g, '');
     uid = uid.replace('+27', '0');
 
-    let userId = this.store.query('user', {
+    this.store.query('user', {
       // Only data for fields whose names are in this list will be included in the records.
       fields: ['phoneNumber', 'firstName'],
       // A formula used to filter records.
-      filterByFormula: '{phoneNumber} = "' + uid + '"',
+      filterByFormula: '{phoneNumber} = "' + uid + '"'
       // filterByFormula: "SEARCH(" + this.get('phoneNumber') + ", {Phone})",
       // The maximum total number of records that will be returned.
       // maxRecords: 50,
@@ -60,13 +68,22 @@ export default Service.extend({
       } else {
         _this.set('error', 'Unfortunately this number is not on our list.');
       }
-    }).catch((e) => {
+      this.set('verifying', false);
+    }).catch(() => {
       _this.set('error', 'Sorry! We probably dont have this number or you made a mistake.');
+      this.set('verifying', false);
     });
+
   },
 
   saveCurrentUser() {
     var _this = this;
+
+    if (this.get('saving')) {
+      return;
+    }
+
+    this.set('saving', true);
 
     this.get('currentUser.party').forEach((member) => {
       member.save();
@@ -75,9 +92,12 @@ export default Service.extend({
     this.get('currentUser').save().then(() => {
       console.log('saved!');
       _this.get('flashMessages').success('Successfully saved!');
+      this.set('saving', false);
     }).catch(() => {
       _this.get('flashMessages').danger('Oops! Something went wrong!');
+      this.set('saving', false);
     });
+
   },
 
   toggleEvent(user, event) {
