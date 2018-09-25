@@ -48,9 +48,9 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.locationType = 'hash';
-    ENV.rootURL = '/ember-rsvp/';
+    ENV.rootURL = '/';
     ENV.locationType = 'hash';
-    ENV.baseURL = '/ember-rsvp/';
+    ENV.baseURL = '/';
     // here you can enable a production-specific feature
   }
 
