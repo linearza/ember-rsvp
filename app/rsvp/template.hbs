@@ -18,19 +18,29 @@
 
     <h4>Please RSVP for all the members listed in your party here:</h4>
     <div class="x-check-list">
-      {{#x-check
-        checked=(array-contains currentUser.attendingEvents event) onChange=(action 'toggleEvent' currentUser event target=rsvp)
-      }}
-        {{currentUser.name}}
-      {{/x-check}}
-      <br><br>
-      {{#each currentUser.party as |member|}}
-        {{#x-check
-          checked=(array-contains member.attendingEvents event) onChange=(action 'toggleEvent' member event target=rsvp)
+      <div class="check-toggle-item">
+        {{x-check
+          class="cross"
+          checked=(array-contains currentUser.notAttendingEvents event) onChange=(action 'toggleNotAttending' currentUser event target=rsvp)
         }}
+        {{x-check
+          checked=(array-contains currentUser.attendingEvents event) onChange=(action 'toggleAttending' currentUser event target=rsvp)
+        }}
+        {{currentUser.name}}
+      </div>
+
+
+      {{#each currentUser.party as |member|}}
+        <div class="check-toggle-item">
+          {{x-check
+            class="cross"
+            checked=(array-contains member.notAttendingEvents event) onChange=(action 'toggleNotAttending' member event target=rsvp)
+          }}
+          {{x-check
+            checked=(array-contains member.attendingEvents event) onChange=(action 'toggleAttending' member event target=rsvp)
+          }}
           {{member.name}}
-        {{/x-check}}
-        <br><br>
+        </div>
       {{/each}}
     </div>
   {{/each}}

@@ -27,11 +27,10 @@
       -webkit-backface-visibility: hidden;
       &:after {
         content: "";
-        background: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12"><path fill="#FFF" fill-rule="evenodd" d="M6.137 12L0 5.891l2.192-2.182 3.945 3.927L13.808 0 16 2.182z"/></svg>') no-repeat center;
+        background: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12"><path fill="#ccc" fill-rule="evenodd" d="M6.137 12L0 5.891l2.192-2.182 3.945 3.927L13.808 0 16 2.182z"/></svg>') no-repeat center;
         display: block;
-        transform: scale(0);
         transition: transform 100ms 100ms;
-        background-size: contain;
+        // background-size: contain;
         width: 16px;
         height: 16px;
         margin: 8px auto;
@@ -42,7 +41,7 @@
         background: $gold;
         border-color: $gold;
         &:after {
-          transform: scale(1);
+          background: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12"><path fill="#fff" fill-rule="evenodd" d="M6.137 12L0 5.891l2.192-2.182 3.945 3.927L13.808 0 16 2.182z"/></svg>') no-repeat center;
         }
       }
     }
@@ -52,9 +51,43 @@
     padding-bottom: 4px;
     display: inline-block;
   }
+  &.cross{
+    input {
+      + span {
+        &:after {
+          content: "";
+          background: url('data:image/svg+xml;charset=utf-8,<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path fill="#ccc" d="M6.93 6l4.878 4.879a.66.66 0 0 1 0 .93.66.66 0 0 1-.93 0L6 6.928l-4.879 4.88a.66.66 0 0 1-.93 0 .659.659 0 0 1 0-.93L5.072 6 .19 1.12a.66.66 0 0 1 0-.929.66.66 0 0 1 .93 0L6 5.071 10.878.19a.66.66 0 0 1 .93 0 .66.66 0 0 1 0 .93L6.929 6z" fill-rule="evenodd" stroke="#ccc" stroke-width="1"/></svg>') no-repeat center;
+          display: block;
+          transition: transform 100ms 100ms;
+          // background-size: contain;
+          width: 16px;
+          height: 16px;
+          margin: 8px auto;
+        }
+      }
+      &:checked{
+        + span {
+          background: $red;
+          border-color: $red;
+          &:after {
+            background: url('data:image/svg+xml;charset=utf-8,<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M6.93 6l4.878 4.879a.66.66 0 0 1 0 .93.66.66 0 0 1-.93 0L6 6.928l-4.879 4.88a.66.66 0 0 1-.93 0 .659.659 0 0 1 0-.93L5.072 6 .19 1.12a.66.66 0 0 1 0-.929.66.66 0 0 1 .93 0L6 5.071 10.878.19a.66.66 0 0 1 .93 0 .66.66 0 0 1 0 .93L6.929 6z" fill-rule="evenodd" stroke="#FFF" stroke-width="1"/></svg>') no-repeat center;
+          }
+        }
+      }
+    }
+  }
 }
 
 .x-check-list{
   display: inline-block;
   text-align: left;
+  max-width: 100%;
+  .check-toggle-item{
+    line-height: 32px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    margin-bottom: 16px;
+  }
 }

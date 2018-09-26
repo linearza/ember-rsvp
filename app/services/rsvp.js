@@ -55,6 +55,8 @@ export default Service.extend({
       //   direction: "desc"
       // }]
     }).then((res) => {
+
+
       console.log(res.length, _this)
       if (res.content[0].id) {
         _this.get('applicationController').setProperties({
@@ -108,6 +110,30 @@ export default Service.extend({
     }
   },
 
+  toggleAttending(user, event) {
+    if (user.get('notAttendingEvents').includes(event)) {
+      user.get('notAttendingEvents').removeObject(event);
+    }
+
+    if (user.get('attendingEvents').includes(event)) {
+      user.get('attendingEvents').removeObject(event);
+    } else {
+      user.get('attendingEvents').pushObject(event);
+    }
+  },
+
+  toggleNotAttending(user, event) {
+    if (user.get('attendingEvents').includes(event)) {
+      user.get('attendingEvents').removeObject(event);
+    }
+
+    if (user.get('notAttendingEvents').includes(event)) {
+      user.get('notAttendingEvents').removeObject(event);
+    } else {
+      user.get('notAttendingEvents').pushObject(event);
+    }
+  },
+
   unauthenticate() {
     this.set('currentUser', null);
     this.get('router').transitionTo('index');
@@ -124,6 +150,14 @@ export default Service.extend({
 
     toggleEvent(user, event) {
       this.toggleEvent(user, event)
+    },
+
+    toggleAttending(user, event) {
+      this.toggleAttending(user, event)
+    },
+
+    toggleNotAttending(user, event) {
+      this.toggleNotAttending(user, event)
     },
 
     unauthenticate() {
