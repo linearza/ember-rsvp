@@ -17,6 +17,8 @@
     max-width: 90%;
     height: auto;
     animation: rotate 100000ms infinite linear;
+    transform: translate3d(0,0,0);
+    will-change: transform;
   }
   .names{
     position: absolute;
