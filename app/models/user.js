@@ -31,6 +31,9 @@ export default DS.Model.extend({
   hasLoggedIn: DS.attr(),
 
   name: computed('firstName', 'lastName', function() {
+    if (!this.get('firstName')) {
+      return;
+    }
     return this.get('firstName') + ' ' + (this.get('lastName') || '');
   })
 });

@@ -1,0 +1,39 @@
+@keyframes flash-out {
+  0% {
+    opacity: 1;
+    transform: translate3d(0,0,0);
+  }
+  99%{
+    transform: translate3d(0,0,0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(-1000%,0,0);
+    opacity: 0;
+  }
+}
+
+@keyframes flash-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(0,0,0);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.flash-overlay{
+  will-change: transform;
+  background: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  animation: flash-out forwards 500ms ease-in;
+  &.flash-in{
+    animation: flash-in 500ms forwards ease-in;
+  }
+}

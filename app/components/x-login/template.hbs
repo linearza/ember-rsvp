@@ -2,6 +2,9 @@
   <div class="error">{{rsvp.error}}</div>
 {{/if}}
 
-{{input placeholder="Eg. 082 123 4567" value=uid}}
-
-<button {{action 'verifyAndAuthenticate' uid target=rsvp}} class="{{if rsvp.verifying 'disabled'}}">{{#if rsvp.verifying}}Verifying{{else}}Enter{{/if}}</button>
+<form>
+  {{input placeholder="Eg. 082 123 4567" value=uid}}
+  <button {{action 'verifyAndAuthenticate' uid target=rsvp}} class="{{if rsvp.verifying 'disabled'}}" type="submit">
+    {{#if rsvp.verifying}}Verifying{{else}}Enter{{/if}}
+  </button>
+</form>

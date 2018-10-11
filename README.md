@@ -5,8 +5,8 @@ A short introduction of this app could easily go here.
 
 ## TO DO
 
-Transparent login button form
-Not coming feature?
+Transparent login button form - done
+Not coming feature? - done
 Log in tracking feature?
 
 

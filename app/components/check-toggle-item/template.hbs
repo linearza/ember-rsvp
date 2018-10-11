@@ -1,0 +1,13 @@
+{{x-check
+  class="cross"
+  checked=(array-contains user.notAttendingEvents event)
+  onChange=(action 'toggleNotAttending' user event target=rsvp)
+}}
+{{x-check
+  checked=(array-contains user.attendingEvents event)
+  onChange=(action 'toggleAttending' user event target=rsvp)
+}}
+
+{{#if (not (eq user.name 'undefined'))}}
+  {{user.name}}
+{{/if}}

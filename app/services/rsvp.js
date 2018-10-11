@@ -20,6 +20,8 @@ export default Service.extend({
   verifying: false,
   saving: false,
 
+  animateLogin: false,
+
   verifyAndAuthenticate(uid) {
     var _this = this;
 
@@ -63,10 +65,17 @@ export default Service.extend({
           name: null,
           uid: null
         });
-        _this.get('router').transitionTo('rsvp', res.content[0].id);
-        run.next(() => {
-          $('body').scrollTop(0);
-        });
+
+        _this.set('animateLogin', true);
+
+        run.later(() => {
+          _this.get('router').transitionTo('rsvp', res.content[0].id);
+          run.next(() => {
+            $('body').scrollTop(0);
+            _this.set('animateLogin', false);
+          });
+        }, 500);
+
       } else {
         _this.set('error', 'Unfortunately this number is not on our list.');
       }
