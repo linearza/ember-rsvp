@@ -5,6 +5,9 @@ import {
 import {
   run
 } from '@ember/runloop';
+import {
+  computed
+} from '@ember/object';
 
 export default Service.extend({
 
@@ -18,9 +21,15 @@ export default Service.extend({
   error: null,
 
   verifying: false,
+  verifiedUser: false,
   saving: false,
 
   animateLogin: false,
+
+  currentUserVerified: computed('currentUser', 'verifiedUser', function() {
+    // TO DO: check if user was verified in current session for extra safety
+    return this.get('currentUser');
+  }),
 
   verifyAndAuthenticate(uid) {
     var _this = this;
@@ -66,10 +75,14 @@ export default Service.extend({
           uid: null
         });
 
-        _this.set('animateLogin', true);
+
+        _this.setProperties({
+          verifiedUser: true,
+          animateLogin: true
+        });
 
         run.later(() => {
-          _this.get('router').transitionTo('rsvp', res.content[0].id);
+          _this.get('router').transitionTo('events.index', res.content[0].id);
           run.next(() => {
             $('body').scrollTop(0);
             _this.set('animateLogin', false);
@@ -79,10 +92,10 @@ export default Service.extend({
       } else {
         _this.set('error', 'Unfortunately this number is not on our list.');
       }
-      this.set('verifying', false);
+      _this.set('verifying', false);
     }).catch(() => {
       _this.set('error', 'Sorry! We probably dont have this number or you made a mistake.');
-      this.set('verifying', false);
+      _this.set('verifying', false);
     });
 
   },

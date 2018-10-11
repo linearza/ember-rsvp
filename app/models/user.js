@@ -8,7 +8,9 @@ export default DS.Model.extend({
   lastName: DS.attr(),
   phoneNumber: DS.attr(),
 
-  party: DS.hasMany('user'),
+  party: DS.hasMany('user', {
+    inverse: null
+  }),
 
   invitedEvents: DS.hasMany('event', {
     async: true,

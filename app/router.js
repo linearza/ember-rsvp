@@ -6,10 +6,24 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL
 });
 
+
 Router.map(function() {
   this.route('rsvp', {
     path: 'rsvp/:id'
   });
+
+  this.route('events', {
+    path: ':user_id'
+  }, function() {
+    this.route('index', {
+      path: 'events'
+    })
+    this.route('event', {
+      path: 'event/:event_id'
+    });
+  });
+
+
   this.route('page', {
     path: 'page/:id'
   });

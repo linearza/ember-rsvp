@@ -8,11 +8,12 @@ export default Route.extend({
 
   rsvp: service(),
 
-  beforeModel(transition) {
+  model(params) {
+    // check for currentUser and just return that instead of querying store
     if (this.get('rsvp.currentUser')) {
-      transition.abort();
-      return this.transitionTo('events.index', this.get('rsvp.currentUser'));
+      return this.get('rsvp.currentUser');
     }
-  }
 
+    return this.modelFor('events');
+  }
 });

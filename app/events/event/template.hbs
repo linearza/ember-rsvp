@@ -1,0 +1,34 @@
+<div class="rsvp-container">
+  <h1>{{event.name}}</h1>
+  <p>{{event.description}}</p>
+
+  <p><b>Date:</b> {{moment-format event.date 'MMMM Do YYYY'}}</p>
+  <p>
+    <b>Time:</b> {{event.time}} <br>
+    (Come light up the room as your schedule allows – there are no formal proceedings)
+  </p>
+  <p><b>Place:</b> {{event.locationName}} (<a href="{{event.locationLink}}" target="_blank">Directions</a>)</p>
+
+  <p><b>Dress code:</b> {{event.dressCode}} </p>
+
+  <p><i>Light snacks and drinks will be served.</i></p>
+
+  <h4>Please RSVP for all the members listed in your party here:</h4>
+  <div class="x-check-list">
+    {{check-toggle-item user=currentUser event=event}}
+
+    {{#each currentUser.party as |member|}}
+      {{check-toggle-item user=member event=event}}
+    {{/each}}
+  </div>
+
+  <br><br><br><br>
+
+  <button class="btn {{if rsvp.saving 'disabled'}}" {{action 'saveCurrentUser' target=rsvp}}>{{#if rsvp.saving}}Saving{{else}}Save{{/if}}</button>
+
+  <br><br><br><br>
+
+  <p><i>“We cannot hold a torch to light another’s path without brightening our own.”
+  <br>Ben Sweetland</i></p>
+
+</div>

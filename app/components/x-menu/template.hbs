@@ -1,7 +1,13 @@
 {{mc-logo class="mini"}}
 
 
-<li>{{#link-to 'index'}}Home{{/link-to}}</li>
-<li>{{#link-to 'rsvp' currentUser}}RSVP{{/link-to}}</li>
+<li>{{#link-to 'events.index'}}Events{{/link-to}}</li>
+
+{{#each currentUser.invitedEvents as |event|}}
+  <li>{{#link-to 'events.event' event.id}}{{event.shortName}}{{/link-to}}</li>
+{{/each}}
+
+<li><span {{action 'unauthenticate' target=rsvp}}>Log out</span></li>
+
 {{!-- <li>{{#link-to 'index'}}Directions{{/link-to}}</li> --}}
 
