@@ -8,3 +8,13 @@ $monitor: 1500;
     @media only screen and (min-width: $breakpoint + px) { @content; }
 }
 
+
+@mixin clearfix {
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+  }
+}

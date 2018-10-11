@@ -1,0 +1,22 @@
+.table-list{
+  @include clearfix;
+  margin-bottom: 90px;
+  .col-50{
+    width: 50%;
+    &:first-child{
+      float: left;
+      border-right: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    &:last-child{
+      float: right;
+      margin-left: -1px;
+    }
+    .cell{
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      padding: 6px;
+      &:last-child{
+        border-bottom: 0;
+      }
+    }
+  }
+}

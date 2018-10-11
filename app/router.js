@@ -21,6 +21,10 @@ Router.map(function() {
     this.route('event', {
       path: 'event/:event_id'
     });
+    this.route('admin', {
+      path: 'admin'
+    });
+
   });
 
 

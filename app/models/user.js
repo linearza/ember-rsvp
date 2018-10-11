@@ -8,6 +8,8 @@ export default DS.Model.extend({
   lastName: DS.attr(),
   phoneNumber: DS.attr(),
 
+  isAdmin: DS.attr(),
+
   party: DS.hasMany('user', {
     inverse: null
   }),
