@@ -6,7 +6,7 @@
   <div class="events">
     {{#each currentUser.invitedEvents as |event|}}
       <div class="event-listing">
-        <h3>{{event.name}}</h3>
+        <h3>{{event.displayName}}</h3>
         {{#link-to 'events.event' event.id class="btn s-s"}}RSVP{{/link-to}}
       </div>
     {{/each}}
