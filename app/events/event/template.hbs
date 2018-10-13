@@ -1,34 +1,59 @@
 <div class="rsvp-container">
-  <h1>{{event.displayName}}</h1>
-  <p>{{event.description}}</p>
+  <div class="event-details">
+    <h1>{{event.displayName}}</h1>
+    <div class="description">{{simple-format event.description}}</div>
 
-  <p><b>Date:</b> {{moment-format event.date 'MMMM Do YYYY'}}</p>
-  <p>
-    <b>Time:</b> {{event.time}} <br>
-    (Come light up the room as your schedule allows – there are no formal proceedings)
-  </p>
-  <p><b>Place:</b> {{event.locationName}} (<a href="{{event.locationLink}}" target="_blank">Directions</a>)</p>
+    <div class="event-field">
+      <h3>Date</h3>
+      <p>{{event.date}}</p>
+    </div>
 
-  <p><b>Dress code:</b> {{event.dressCode}} </p>
+    <div class="event-field">
+      <h3>Time</h3>
+      <p>{{event.time}}</p>
+      {{#if event.timeNotes}}
+        <p class="note">{{event.timeNotes}}</p>
+      {{/if}}
+    </div>
 
-  <p><i>Light snacks and drinks will be served.</i></p>
+    <div class="event-field">
+      <h3>Venue</h3>
+      <p>{{event.locationName}}</p>
+      {{#if event.locationLink}}
+        (<a href="{{event.locationLink}}" target="_blank">Directions</a>)
+      {{/if}}
+      {{#if event.locationNotes}}
+        <p class="note">{{event.locationNotes}}</p>
+      {{/if}}
+    </div>
 
-  <h4>Please RSVP for all the members listed in your party here:</h4>
-  <div class="x-check-list">
-    {{check-toggle-item user=currentUser event=event}}
+    <div class="event-field">
+      <h3>Dress code</h3>
+      <p>{{event.dressCode}}</p>
+    </div>
 
-    {{#each currentUser.party as |member|}}
-      {{check-toggle-item user=member event=event}}
-    {{/each}}
+    <div class="event-field">
+      <h3>RSVP by</h3>
+      <p>{{moment-format event.rsvpByDate 'Do MMMM YYYY'}}</p>
+    </div>
+
+    <div class="event-field">
+      <i>Light snacks and drinks will be served.</i>
+    </div>
+
+    <h4>Please RSVP for all the members listed in your party here:</h4>
+    <div class="x-check-list">
+      {{check-toggle-item user=currentUser event=event}}
+
+      {{#each currentUser.party as |member|}}
+        {{check-toggle-item user=member event=event}}
+      {{/each}}
+    </div>
+
+    <div class="buttons">
+      <button class="btn {{if rsvp.saving 'disabled'}}" {{action 'saveCurrentUser' target=rsvp}}>{{#if rsvp.saving}}Saving{{else}}Save{{/if}}</button>
+    </div>
+
   </div>
-
-  <br><br><br><br>
-
-  <button class="btn {{if rsvp.saving 'disabled'}}" {{action 'saveCurrentUser' target=rsvp}}>{{#if rsvp.saving}}Saving{{else}}Save{{/if}}</button>
-
-  <br><br><br><br>
-
-  <p><i>“I am the light of the world. Whoever follows me will not walk in darkness, but will have the light of life.”
-  <br>John 8:12</i></p>
 
 </div>

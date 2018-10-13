@@ -1,0 +1,25 @@
+.event-details{
+  .description{
+    margin-bottom: 32px;
+  }
+  .event-field{
+    margin-bottom: 24px;
+    h3{
+      margin: 0;
+      font-size: 18px;
+    }
+    p{
+      margin: 0;
+      &.note{
+        font-size: 16px;
+        margin-top: 8px;
+      }
+    }
+    a{
+      font-weight: 600;
+    }
+  }
+  .buttons{
+    margin-top: 32px;
+  }
+}
