@@ -1,0 +1,12 @@
+.music-toggle{
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  svg{
+    width: 20px;
+    height: 20px;
+    fill: $white;
+    opacity: 0.6;
+  }
+}

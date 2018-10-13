@@ -1,7 +1,7 @@
 <div class="rsvp-container">
   <h1>Hey, {{currentUser.firstName}}!</h1>
 
-  <p>You have been invited to the following events:</p>
+  <p>You have been invited to the following {{if (gt currentUser.invitedEvents.length 1) 'events' 'event'}}:</p>
 
   <div class="events">
     {{#each currentUser.invitedEvents as |event|}}

@@ -67,8 +67,6 @@ export default Service.extend({
       // }]
     }).then((res) => {
 
-
-      console.log(res.length, _this)
       if (res.content[0].id) {
         _this.get('applicationController').setProperties({
           name: null,

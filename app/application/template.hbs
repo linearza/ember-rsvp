@@ -1,5 +1,7 @@
 {{x-stars}}
 
+{{music-toggle}}
+
 {{#each flashMessages.queue as |flash|}}
   {{#flash-message flash=flash as |component flash|}}
     {{flash.message}}
@@ -11,8 +13,5 @@
 {{/if}}
 
 {{outlet}}
-
-{{!-- do we want some music? --}}
-{{!-- <audio src="vir-altyd.mp3" autoplay="autoplay"></audio> --}}
 
 <div class="flash-overlay {{if rsvp.animateLogin 'flash-in'}}"></div>
