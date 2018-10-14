@@ -43,10 +43,10 @@
       <p>{{moment-format event.rsvpByDate 'Do MMMM YYYY'}}</p>
     </div>
 
-    {{#if event.details}}
+    {{#if event.whatToPack}}
       <div class="event-field highlighted">
-        <h3>Details</h3>
-        <p>{{event.details}}</p>
+        <h3>What to pack</h3>
+        <p>{{simple-format event.whatToPack}}</p>
       </div>
     {{/if}}
 

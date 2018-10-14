@@ -26,7 +26,9 @@ export default DS.Model.extend({
 
   isEnabled: DS.attr(),
 
-  details: DS.attr(),
+  whatToPack: DS.attr(),
 
-  userNotes: DS.hasMany('event-note')
+  userNotes: DS.hasMany('event-note', {
+    inverse: 'event'
+  })
 });
