@@ -7,6 +7,8 @@
   <li>{{#link-to 'events.event' event.id}}{{event.shortName}}{{/link-to}}</li>
 {{/each}}
 
+<li>{{#link-to 'events.registry'}}Registry{{/link-to}}</li>
+
 {{#if currentUser.isAdmin}}
   <li>{{#link-to 'events.admin' currentUser.id}}Admin{{/link-to}}</li>
 {{/if}}

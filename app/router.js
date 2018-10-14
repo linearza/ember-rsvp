@@ -19,10 +19,6 @@ Route.reopen({
 });
 
 Router.map(function() {
-  this.route('rsvp', {
-    path: 'rsvp/:id'
-  });
-
   this.route('events', {
     path: ':user_id'
   }, function() {
@@ -35,9 +31,8 @@ Router.map(function() {
     this.route('admin', {
       path: 'admin'
     });
-
+    this.route('registry');
   });
-
 
   this.route('page', {
     path: 'page/:id'
