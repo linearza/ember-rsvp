@@ -28,7 +28,7 @@ Router.map(function() {
   }, function() {
     this.route('index', {
       path: 'events'
-    })
+    });
     this.route('event', {
       path: 'event/:event_id'
     });

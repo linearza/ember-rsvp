@@ -27,6 +27,12 @@
       {{/if}}
     </div>
 
+    {{#if event.cateringNote}}
+      <div class="event-field">
+        <i>{{event.cateringNote}}</i>
+      </div>
+    {{/if}}
+
     <div class="event-field">
       <h3>Dress code</h3>
       <p>{{event.dressCode}}</p>
@@ -38,16 +44,15 @@
     </div>
 
     <div class="event-field">
-      <i>Light snacks and drinks will be served.</i>
-    </div>
+      <h3>RSVP now</h3>
+      <p class="note">Please RSVP for all the members listed in your party here</p>
+      <div class="x-check-list">
+        {{check-toggle-item user=currentUser event=event}}
 
-    <h4>Please RSVP for all the members listed in your party here:</h4>
-    <div class="x-check-list">
-      {{check-toggle-item user=currentUser event=event}}
-
-      {{#each currentUser.party as |member|}}
-        {{check-toggle-item user=member event=event}}
-      {{/each}}
+        {{#each currentUser.party as |member|}}
+          {{check-toggle-item user=member event=event}}
+        {{/each}}
+      </div>
     </div>
 
     <div class="buttons">

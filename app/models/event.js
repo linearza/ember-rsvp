@@ -18,7 +18,11 @@ export default DS.Model.extend({
 
   rsvpByDate: DS.attr(),
 
+  cateringNote: DS.attr(),
+
   locationName: DS.attr(),
   locationLink: DS.attr(),
-  locationNotes: DS.attr()
+  locationNotes: DS.attr(),
+
+  isEnabled: DS.attr()
 });

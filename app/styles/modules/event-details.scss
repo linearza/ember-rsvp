@@ -11,12 +11,14 @@
     p{
       margin: 0;
       &.note{
-        font-size: 16px;
-        margin-top: 8px;
+        font-size: 14px;
       }
     }
     a{
       font-weight: 600;
+    }
+    .x-check-list{
+      margin-top: 20px;
     }
   }
   .buttons{
