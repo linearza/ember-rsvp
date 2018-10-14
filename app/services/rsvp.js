@@ -111,6 +111,10 @@ export default Service.extend({
       member.save();
     });
 
+    this.get('currentUser.eventNotes').forEach((eventNote) => {
+      eventNote.save();
+    });
+
     this.get('currentUser').save().then(() => {
       console.log('saved!');
       _this.get('flashMessages').success('Successfully saved!');

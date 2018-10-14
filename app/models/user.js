@@ -39,5 +39,7 @@ export default DS.Model.extend({
       return;
     }
     return this.get('firstName') + ' ' + (this.get('lastName') || '');
-  })
+  }),
+
+  eventNotes: DS.hasMany('event-note')
 });

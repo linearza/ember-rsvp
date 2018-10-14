@@ -26,5 +26,7 @@ export default DS.Model.extend({
 
   isEnabled: DS.attr(),
 
-  details: DS.attr()
+  details: DS.attr(),
+
+  userNotes: DS.hasMany('event-note')
 });

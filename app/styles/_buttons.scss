@@ -17,7 +17,7 @@
 
   // disabled
   &.-d, &.disabled{
-    background: #d2d2d2;
+    opacity: 0.5;
   }
 
 
@@ -29,6 +29,11 @@
     svg {
       fill: $gold;
     }
+  }
+
+  &.-i{
+    background: $white;
+    color: $gold;
   }
 
 
