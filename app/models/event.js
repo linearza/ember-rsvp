@@ -24,5 +24,7 @@ export default DS.Model.extend({
   locationLink: DS.attr(),
   locationNotes: DS.attr(),
 
-  isEnabled: DS.attr()
+  isEnabled: DS.attr(),
+
+  details: DS.attr()
 });

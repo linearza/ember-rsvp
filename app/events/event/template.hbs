@@ -43,7 +43,14 @@
       <p>{{moment-format event.rsvpByDate 'Do MMMM YYYY'}}</p>
     </div>
 
-    <div class="event-field">
+    {{#if event.details}}
+      <div class="event-field highlighted">
+        <h3>Details</h3>
+        <p>{{event.details}}</p>
+      </div>
+    {{/if}}
+
+    <div class="event-field mt48">
       <h3>RSVP now</h3>
       <p class="note">Please RSVP for all the members listed in your party here</p>
       <div class="x-check-list">
