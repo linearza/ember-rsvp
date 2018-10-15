@@ -26,7 +26,7 @@
           {{/if}}
         {{/each}}
 
-        <h4>Non RSVP</h4>
+        <h4>Pending</h4>
         {{#each event.invitees as |invitee|}}
           {{#unless (or (array-contains invitee.attendingEvents event) (array-contains invitee.notAttendingEvents event))}}
             <div class="cell">
