@@ -18,12 +18,12 @@
 
     <div class="event-field">
       <h3>Venue</h3>
-      <p>{{event.locationName}}</p>
+      <p>{{simple-format event.locationName}}</p>
       {{#if event.locationLink}}
         (<a href="{{event.locationLink}}" target="_blank">Directions</a>)
       {{/if}}
       {{#if event.locationNotes}}
-        <p class="note">{{event.locationNotes}}</p>
+        <p class="note">{{simple-format event.locationNotes}}</p>
       {{/if}}
     </div>
 
