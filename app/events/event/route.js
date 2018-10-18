@@ -25,6 +25,10 @@ export default Route.extend({
   resetController(controller, isExiting) {
     this._super(...arguments);
 
+    if (!this.get('currentUser')) {
+      return;
+    }
+
     // Teardown unsaved notes
     this.get('currentUser.eventNotes').forEach((eventNote) => {
       if (eventNote.get('isNew')) {

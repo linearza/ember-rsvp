@@ -20,7 +20,7 @@ export default Controller.extend({
 
   userEventNotes: computed('currentUser.eventNotes.@each', 'event', function() {
     // TO DO: check if user was verified in current session for extra safety
-    if (this.get('currentUser.eventNotes')) {
+    if (this.get('currentUser') && this.get('currentUser.eventNotes')) {
       return this.get('currentUser.eventNotes').filterBy('event.id', this.get('event.id'));
     }
   }),
