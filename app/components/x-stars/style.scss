@@ -40,6 +40,7 @@
     -o-animation:move-twink-back 400s linear infinite;
     -webkit-animation:move-twink-back 400s linear infinite;
     animation:move-twink-back 400s linear infinite;
+    transform: translate3d(0,0,0);
   }
 
 }
