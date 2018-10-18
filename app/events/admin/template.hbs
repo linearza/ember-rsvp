@@ -4,39 +4,40 @@
   <p>Ek sien so baie uit om die toekoms saam met jou in te gaan!</p>
 
   {{#each events as |event|}}
-    <h3>{{event.name}}</h3>
-    <div class="table-list">
-      <div class="col-50">
-        <h4>Attending</h4>
-        {{#each event.invitees as |invitee|}}
-          {{#if (array-contains invitee.attendingEvents event)}}
-            <div class="cell">
-              {{invitee.name}}
-            </div>
-          {{/if}}
-        {{/each}}
-      </div>
-      <div class="col-50">
-        <h4>Not attending</h4>
-        {{#each event.invitees as |invitee|}}
-          {{#if (array-contains invitee.notAttendingEvents event)}}
-            <div class="cell">
-              {{invitee.name}}
-            </div>
-          {{/if}}
-        {{/each}}
+    {{#if event.isEnabled}}
+      <h3>{{event.name}}</h3>
+      <div class="table-list">
+        <div class="col-50">
+          <h4>Attending</h4>
+          {{#each event.invitees as |invitee|}}
+            {{#if (array-contains invitee.attendingEvents event)}}
+              <div class="cell">
+                {{invitee.name}}
+              </div>
+            {{/if}}
+          {{/each}}
+        </div>
+        <div class="col-50">
+          <h4>Not attending</h4>
+          {{#each event.invitees as |invitee|}}
+            {{#if (array-contains invitee.notAttendingEvents event)}}
+              <div class="cell">
+                {{invitee.name}}
+              </div>
+            {{/if}}
+          {{/each}}
 
-        <h4>Pending</h4>
-        {{#each event.invitees as |invitee|}}
-          {{#unless (or (array-contains invitee.attendingEvents event) (array-contains invitee.notAttendingEvents event))}}
-            <div class="cell">
-              {{invitee.name}}
-            </div>
-          {{/unless}}
-        {{/each}}
+          <h4>Pending</h4>
+          {{#each event.invitees as |invitee|}}
+            {{#unless (or (array-contains invitee.attendingEvents event) (array-contains invitee.notAttendingEvents event))}}
+              <div class="cell">
+                {{invitee.name}}
+              </div>
+            {{/unless}}
+          {{/each}}
+        </div>
       </div>
-    </div>
-
+    {{/if}}
   {{/each}}
 
 
