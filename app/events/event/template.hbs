@@ -65,13 +65,13 @@
 
     <div class="event-field">
       {{#if userEventNotes}}
-        <p class="note mb16">When you are done you can just save everything at once below.</p>
+        <p class="note mb16">When you are done you can just save everything at the same time below.</p>
         {{#each userEventNotes as |eventNote|}}
-          {{textarea value=eventNote.note placeholder="Dietary requirements? Other info you want to let us know about? Feel free to leave that here"}}
+          {{textarea value=eventNote.note placeholder="Dietary requirements? Other info you want to let us know about? Feel free to leave that here."}}
           <button class="btn s-s -i {{if removingNote 'disabled'}}" {{action 'removeNote' eventNote}}>Remove note</button>
         {{/each}}
       {{else}}
-        <p class="note mb16">If you have any comments or queries, you can add a note here.</p>
+        <p class="note mb16">{{event.userNotesNote}}</p>
         <button class="btn s-s -i {{if addingNote 'disabled'}}" {{action 'newNote'}}>Add note</button>
       {{/if}}
     </div>

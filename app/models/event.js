@@ -30,5 +30,7 @@ export default DS.Model.extend({
 
   userNotes: DS.hasMany('event-note', {
     inverse: 'event'
-  })
+  }),
+
+  userNotesNote: DS.attr(),
 });
