@@ -5,7 +5,7 @@ import {
 export function eventStatus(params, hash) {
 
   if (!hash.user.attendingEvents.includes(hash.event) && !hash.user.notAttendingEvents.includes(hash.event)) {
-    return 'You still need to RSVP for this event, please';
+    return 'You still need to RSVP for this event';
   }
 
   if (hash.user.attendingEvents.includes(hash.event)) {
