@@ -18,6 +18,12 @@ export default Route.extend({
 
   setupController(controller, model) {
     this._super(...arguments);
+
+
+    if (!this.get('rsvp.currentUser.isAdmin')) {
+      this.transitionTo('index');
+    }
+
     controller.setProperties({
       events: model.events,
       users: model.users
