@@ -6,6 +6,21 @@
   {{#each events as |event|}}
     {{#if event.isEnabled}}
       <h3>{{event.name}}</h3>
+
+      {{#if event.userNotes}}
+        <h4>Notes</h4>
+        {{#each event.userNotes as |note|}}
+          {{#if note.note}}
+            <div class="note">
+              <p><b>{{note.user.name}} says:</b> {{note.note}}</p>
+            </div>
+          {{/if}}
+        {{/each}}
+
+        <hr>
+      {{/if}}
+
+
       <div class="table-list">
         <div class="col-50">
           <h4>Attending</h4>
