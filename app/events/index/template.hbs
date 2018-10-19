@@ -7,6 +7,7 @@
     {{#each currentUser.invitedEvents as |event|}}
       <div class="event-listing">
         <h3>{{event.displayName}}</h3>
+        <span class="status">{{event-status event=event user=currentUser}}</span>
         {{#link-to 'events.event' event.id class="btn s-s"}}RSVP{{/link-to}}
       </div>
     {{/each}}

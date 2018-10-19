@@ -17,15 +17,16 @@ export default Route.extend({
     return this.store.findRecord('user', params.user_id);
   },
 
-  // afterModel(model, transition) {
-  //   if (!model) {
-  //     transition.abort();
-  //     this.transitionTo('index');
-  //   }
-  // },
+  afterModel(model, transition) {
+    if (!model && !this.get('rsvp.currentUser')) {
+      transition.abort();
+      this.transitionTo('index');
+    }
+  },
 
   setupController(controller, model) {
     this._super(...arguments);
+
     if (!this.get('rsvp.currentUser')) {
       this.set('rsvp.currentUser', model);
     }
