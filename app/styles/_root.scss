@@ -58,6 +58,27 @@ hr {
   height: 1px;
 }
 
+ul {
+  li{
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  ul {
+    border-left: 1px solid rgba($white, 0.6);
+    margin-left: 0;
+    margin-top: 20px;
+    margin-bottom:40px;
+    padding-left: 16px;
+    li{
+      margin-left: 20px;
+      font-size: 16px;
+      &:nth-child(2){
+        margin-top: 6px;
+      }
+    }
+  }
+}
+
 textarea{
   background: rgba(255,255,255,0.2);
   outline: 0;
@@ -92,4 +113,13 @@ textarea{
   @include respond-to($tablet) {
     font-size: 80px;
   }
+}
+
+.text-left{
+  text-align: left;
+}
+
+.link{
+  color: lighten(#d4a928, 10%);
+  font-weight: 700;
 }

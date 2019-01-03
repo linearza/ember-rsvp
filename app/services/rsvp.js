@@ -18,6 +18,29 @@ export default Service.extend({
   currentUser: null, // once authenticated we set them here for the duration of the session
   applicationController: null,
 
+
+  /*
+    This is bit is hacky and last minute just to get urgent info out to guests
+  */
+
+  showPreWeddingUpdate: true, // this needs to be dynamic, maybe based on a date check or boolean
+
+  currentUserIsAttendingCore: computed('currentUser.attendingEvents.[]', function() {
+    return this.get('currentUser.attendingEvents').mapBy('id').includes('rec4ePkbbFcgun7ix');
+    // TO DO: check if user was verified in current session for extra safety
+    // return this.get('currentUser');
+  }),
+
+
+  currentUserIsAttendingExternal: computed('currentUser.attendingEvents.[]', function() {
+    return this.get('currentUser.attendingEvents').mapBy('id').includes('rec7zqKxzl2Hg8hpq');
+  }),
+
+
+  /*
+    This is bit is hacky and last minute just to get urgent info out to guests
+  */
+
   error: null,
 
   verifying: false,

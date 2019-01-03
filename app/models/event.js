@@ -27,10 +27,11 @@ export default DS.Model.extend({
   isEnabled: DS.attr('boolean'),
 
   whatToPack: DS.attr(),
+  whatToRemember: DS.attr(),
 
   userNotes: DS.hasMany('event-note', {
     inverse: 'event'
   }),
 
-  userNotesNote: DS.attr(),
+  userNotesNote: DS.attr()
 });

@@ -4,7 +4,9 @@
 <li>{{#link-to 'events.index'}}Events{{/link-to}}</li>
 
 {{#each currentUser.invitedEvents as |event|}}
-  <li>{{#link-to 'events.event' event.id}}{{event.shortName}}{{/link-to}}</li>
+  {{#if event.isEnabled}}
+    <li>{{#link-to 'events.event' event.id}}{{event.shortName}}{{/link-to}}</li>
+  {{/if}}
 {{/each}}
 
 <li>{{#link-to 'events.registry'}}Registry{{/link-to}}</li>
@@ -16,4 +18,3 @@
 <li><span {{action 'unauthenticate' target=rsvp}}>Log out</span></li>
 
 {{!-- <li>{{#link-to 'index'}}Directions{{/link-to}}</li> --}}
-

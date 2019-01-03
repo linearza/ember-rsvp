@@ -1,86 +1,466 @@
-<div class="rsvp-container">
-  <div class="event-details">
-    <h1>{{event.displayName}}</h1>
-    <div class="description">{{simple-format event.description}}</div>
+{{#if (eq event.displayName 'Wedding Breakaway')}}
+    <div class="rsvp-container">
+      <div class="event-details">
+        <h5>You have an event update!</h5>
+        <h1>{{event.displayName}}</h1>
 
-    <div class="event-field">
-      <h3>Date</h3>
-      <p>{{event.date}}</p>
+
+        <div class="event-field mb48 mt48">
+          <h3 class="mb8">Dear {{currentUser.firstName}},</h3>
+          <p>It’s almost time to celebrate our special day with you! Here are a few details that you need to know about the big day. </p>
+        </div>
+
+        {{#if event.whatToRemember}}
+          <div class="event-field highlighted">
+            <h3>What to remember</h3>
+            <p>{{simple-format event.whatToRemember}}</p>
+          </div>
+        {{/if}}
+
+
+        <div class="event-field">
+          <h2>The Venue</h2>
+          <p>We know, we know - by now you must be bursting to know where the wedding venue is. And soon you will! Thank you for your patience thus far, and for indulging us as we attempt to create a wonderful surprise just for you. We have the following two options for you to choose from:</p>
+        </div>
+
+        <hr class="mt40">
+
+        <div class="event-field">
+          <h3 class="mt40 mb16">Option A: The adventure seeker</h3>
+          <p class="mb16">If you love the thrill of surprises and venturing into the unknown, this option is for you. Allow yourself to be guided to our venue by the directions below. All you have to do is follow these to the tee, and look out for the M&amp;C signs along the way.</p>
+
+          <p class="mb16">Depending on your starting point, it can take between 2-3 hours to travel to the venue. We’ve provided estimated times for 6 major areas. We entered the area name into Google Maps (e.g. “Durbanville”) and used the traffic prediction tool on Maps for a Wednesday morning/afternoon. You can use this to plan your departure time for a 2:00pm arrival at the venue. </p>
+
+          <ul class="text-left">
+            <li {{action (mut showDurbavilleDirections) (not showDurbavilleDirections)}}><b>Durbanville:</b> Between 1h50min and 2h10min (we recommend 2h30min just to be safe) - <i class="link">click to reveal directions</i></li>
+            {{#if showDurbavilleDirections}}
+              <ul class="text-left">
+                <b>Directions</b>
+                <li>Get on N7/R45 (merge onto N7/R45 toward Moorreesburg/Vredenburg if you are coming from the R302)</li>
+                <li>Follow N7 to R393 (After approximately 62km, you will encounter a roundabout - take the second exit to stay on the N7 for another 44km).</li>
+                <li>Turn right onto the R393. After 800m, turn right again. </li>
+                <li>After another 8.4km, turn right. Your destination will be in front of you 500m later.</li>
+              </ul>
+            {{/if}}
+
+            <li {{action (mut showLadismithDirections) (not showLadismithDirections)}}><b>Ladismith:</b> Between 4h50min and 5h10 min (we recommend 5h30 min to be safe) - <i class="link">click to reveal directions</i></li>
+            {{#if showLadismithDirections}}
+              <ul class="text-left">
+                <b>Directions</b>
+                <li>Head North toward R62</li>
+                <li>Turn left onto R62</li>
+                <li>After 9.2km, turn left to stay on the R62 for another 146km</li>
+                <li>At the roundabout, take the 2nd exit onto Voortrekker Ave/R60. Follow this road for approximately 47.6km</li>
+                <li>Turn right onto High St/R60</li>
+                <li>Turn left onto N1</li>
+                <li>Turn right onto Michell's Pass/R43</li>
+                <li>Turn left onto Voortrekker St</li>
+                <li>Turn left onto R46</li>
+                <li>Turn right onto R44</li>
+                <li>Continue straight onto R365</li>
+                <li>Turn right onto N7 and drive for approximately 19.5km</li>
+                <li>Turn right onto R393. After 800m, turn right again. </li>
+                <li>After another 8.4km, turn right. Your destination will be in front of you 500m later.</li>
+              </ul>
+            {{/if}}
+
+
+            <li {{action (mut showSouthernSuburbsDirections) (not showSouthernSuburbsDirections)}}><b>Southern Suburbs:</b> Between 2h10min and 2h30min (we recommend 2h45 min just to be safe) - <i class="link">click to reveal directions</i></li>
+            {{#if showSouthernSuburbsDirections}}
+              <ul class="text-left">
+                <b>Directions</b>
+                <li>Get on to the N1 heading to Paarl</li>
+                <li>Take exit 10 for Century City Drive/N7 toward Goodwood/Malmesbury</li>
+                <li>Keep left at the fork to continue on Exit 13A, follow signs for N7/Malmesbury and merge onto N7</li>
+                <li>Follow N7 to R393 (After approximately 62km, you will encounter a roundabout - take the second exit to stay on the N7 for another 44km).</li>
+                <li>Turn right onto the R393. After 800m, turn right again. </li>
+                <li>After another 8.4km, turn right. Your destination will be in front of you 500m later.</li>
+              </ul>
+            {{/if}}
+
+            <li {{action (mut showSeaPointDirections) (not showSeaPointDirections)}}><b>Sea Point/Cape Town:</b> Between 2h10 and 2h30min (we recommend 2h45min just to be safe) - <i class="link">click to reveal directions</i></li>
+            {{#if showSeaPointDirections}}
+              <ul class="text-left">
+                <b>Directions</b>
+                <li>Get on to Nelson Mandela Boulevard/N1/N2</li>
+                <li>Merge onto the N1, follow signs for Paarl/Bellville/R27/Milnetron</li>
+                <li>Take exit 10 for Century City Drive/N7 toward Goodwood/Malmesbury</li>
+                <li>Keep left at the fork to continue on Exit 13A, follow signs for N7/Malmesbury and merge onto N7</li>
+                <li>Follow N7 to R393 (After approximately 62km, you will encounter a roundabout - take the second exit to stay on the N7 for another 44km).</li>
+                <li>Turn right onto the R393. After 800m, turn right again. </li>
+                <li>After another 8.4km, turn right. Your destination will be in front of you 500m later.</li>
+              </ul>
+            {{/if}}
+
+            <li {{action (mut showSomersetDirections) (not showSomersetDirections)}}><b>Somerset West:</b> 2h10-2h50 min (we recommend 3 hours just to be safe) - <i class="link">click to reveal directions</i></li>
+            {{#if showSomersetDirections}}
+              <ul class="text-left">
+                <b>Directions</b>
+                <li>Get on to Voortrekker Road, and continue on this road until you merge onto the R45</li>
+                <li>Get onto N7/R45 toward Moorreesburg/Vredenburg</li>
+                <li>Follow N7 to R393 (After approximately 62km, you will encounter a roundabout - take the second exit to stay on the N7 for another 44km).</li>
+                <li>Turn right onto the R393. After 800m, turn right again. </li>
+                <li>After another 8.4km, turn right. Your destination will be in front of you 500m later.</li>
+              </ul>
+            {{/if}}
+
+            <li {{action (mut showWellingDirections) (not showWellingDirections)}}><b>Wellington:</b> Between 1h50min and 2h00 (We recommend 2h15min to be safe) - <i class="link">click to reveal directions</i></li>
+            {{#if showWellingDirections}}
+              <ul class="text-left">
+                <b>Directions</b>
+                <li>Take Hoofweg Rd to Hermon Rd/R44</li>
+                <li>Turn right onto Hermon Rd/R44</li>
+                <li>Turn left onto R46</li>
+                <li>Turn right onto Church Rd/R311 (continue for 32.2km)</li>
+                <li>Turn right onto N7</li>
+                <li>Follow N7 to R393 (After approximately 31.8km, you will encounter a roundabout - take the second exit to stay on the N7 for another 44km).</li>
+                <li>Turn right onto the R393. After 800m, turn right again. </li>
+                <li>After another 8.4km, turn right. Your destination will be in front of you 500m later.</li>
+              </ul>
+            {{/if}}
+
+          </ul>
+        </div>
+
+        <hr class="mt40">
+
+        <div class="event-field">
+          <h3 class="mt40 mb16">Option B: The planner</h3>
+          <p class="mb40">If the thought of setting off on an Amazing Race type adventure doesn’t appeal to you, we’ve decided that you can have the peace of mind you need by clicking the button below for the big venue reveal. If you choose this option, please make sure that you keep it a secret for the other guests you may interact with before the big day.</p>
+
+          <a href="https://www.google.com/maps/place/Cederkloof/@-32.6800529,18.996587,13.01z/data=!4m5!3m4!1s0x0:0xf83135a892b3fe94!8m2!3d-32.67562!4d19.01111" target="_blank" class="btn s-s -i">Reveal venue</a>
+        </div>
+
+
+        <hr class="mt40">
+
+        <h2 class="mt40">Event details</h2>
+
+        <div class="event-field">
+          <h3>Date</h3>
+          <p>{{event.date}}</p>
+        </div>
+
+        <div class="event-field">
+          <h3>Time</h3>
+          <p>{{event.time}}</p>
+          {{#if event.timeNotes}}
+            <p class="note">{{event.timeNotes}}</p>
+          {{/if}}
+        </div>
+
+
+        {{#if event.cateringNote}}
+          <div class="event-field">
+            <i>{{event.cateringNote}}</i>
+          </div>
+        {{/if}}
+
+        <div class="event-field">
+          <h3>Dress code</h3>
+          <p>{{event.dressCode}}</p>
+        </div>
+
+        <div class="event-field">
+          {{#if userEventNotes}}
+            <p class="note mb16">When you are done you can just save everything at the same time below.</p>
+            {{#each userEventNotes as |eventNote|}}
+              {{textarea value=eventNote.note placeholder="Dietary requirements? Other info you want to let us know about? Feel free to leave that here."}}
+              <button class="btn s-s -i {{if removingNote 'disabled'}}" {{action 'removeNote' eventNote}}>Remove note</button>
+            {{/each}}
+          {{else}}
+            <p class="note mb16">{{event.userNotesNote}}</p>
+            <button class="btn s-s -i {{if addingNote 'disabled'}}" {{action 'newNote'}}>Add note</button>
+          {{/if}}
+        </div>
+
+
+        <div class="buttons mt48">
+          <button class="btn {{if rsvp.saving 'disabled'}}" {{action 'saveCurrentUser' target=rsvp}}>{{#if rsvp.saving}}Saving{{else}}Save{{/if}}</button>
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="event-field">
-      <h3>Time</h3>
-      <p>{{event.time}}</p>
-      {{#if event.timeNotes}}
-        <p class="note">{{event.timeNotes}}</p>
-      {{/if}}
+
+{{else if (eq event.displayName 'Wedding')}}
+
+    External
+
+
+
+    <div class="rsvp-container">
+      <div class="event-details">
+        <h5>You have an event update!</h5>
+        <h1>{{event.displayName}}</h1>
+
+
+        <div class="event-field mb48 mt48">
+          <h3 class="mb8">Dear {{currentUser.firstName}},</h3>
+          <p>It’s almost time to celebrate our special day with you! Here are a few details that you need to know about the big day. </p>
+        </div>
+
+        {{#if event.whatToRemember}}
+          <div class="event-field highlighted">
+            <h3>What to remember</h3>
+            <p>{{simple-format event.whatToRemember}}</p>
+          </div>
+        {{/if}}
+
+
+        <div class="event-field">
+          <h2>The Venue</h2>
+          <p>We know, we know - by now you must be bursting to know where the wedding venue is. And soon you will! Thank you for your patience thus far, and for indulging us as we attempt to create a wonderful surprise just for you. We have the following two options for you to choose from:</p>
+        </div>
+
+        <hr class="mt40">
+
+        <div class="event-field">
+          <h3 class="mt40 mb16">Option A: The adventure seeker</h3>
+          <p class="mb16">If you love the thrill of surprises and venturing into the unknown, this option is for you. Allow yourself to be guided to our venue by the directions below. All you have to do is follow these to the tee, and look out for the M&C signs along the way.</p>
+
+          <p class="mb16">Depending on your starting point, it can take between 2-3 hours to travel to the venue. We’ve provided estimated times for 4 major areas. We entered the area name into Google Maps (e.g. “Durbanville”) and used the traffic prediction tool on Maps for a Wednesday afternoon. You can use this to plan your departure time for a 4:30pm arrival at the venue. Of course, only you will know the unique traffic circumstances that influence your personal departure point.</p>
+
+          <ul class="text-left">
+            <li {{action (mut showDurbavilleDirections) (not showDurbavilleDirections)}}><b>Durbanville:</b> Between 1h50min and 2h10min (we recommend 2h30min just to be safe) - <i class="link">click to reveal directions</i></li>
+            {{#if showDurbavilleDirections}}
+              <ul class="text-left">
+                <b>Directions</b>
+                <li>Get on N7/R45 (merge onto N7/R45 toward Moorreesburg/Vredenburg if you are coming from the R302)</li>
+                <li>Follow N7 to R393 (After approximately 62km, you will encounter a roundabout - take the second exit to stay on the N7 for another 44km).</li>
+                <li>Turn right onto the R393. After 800m, turn right again. </li>
+                <li>After another 8.4km, turn right. Your destination will be in front of you 500m later.</li>
+              </ul>
+            {{/if}}
+
+            <li {{action (mut showLadismithDirections) (not showLadismithDirections)}}><b>Ladismith:</b> Between 4h50min and 5h10 min (we recommend 5h30 min to be safe) - <i class="link">click to reveal directions</i></li>
+            {{#if showLadismithDirections}}
+              <ul class="text-left">
+                <b>Directions</b>
+                <li>Head North toward R62</li>
+                <li>Turn left onto R62</li>
+                <li>After 9.2km, turn left to stay on the R62 for another 146km</li>
+                <li>At the roundabout, take the 2nd exit onto Voortrekker Ave/R60. Follow this road for approximately 47.6km</li>
+                <li>Turn right onto High St/R60</li>
+                <li>Turn left onto N1</li>
+                <li>Turn right onto Michell's Pass/R43</li>
+                <li>Turn left onto Voortrekker St</li>
+                <li>Turn left onto R46</li>
+                <li>Turn right onto R44</li>
+                <li>Continue straight onto R365</li>
+                <li>Turn right onto N7 and drive for approximately 19.5km</li>
+                <li>Turn right onto R393. After 800m, turn right again. </li>
+                <li>After another 8.4km, turn right. Your destination will be in front of you 500m later.</li>
+              </ul>
+            {{/if}}
+
+
+            <li {{action (mut showSouthernSuburbsDirections) (not showSouthernSuburbsDirections)}}><b>Southern Suburbs:</b> Between 2h10min and 2h30min (we recommend 2h45 min just to be safe) - <i class="link">click to reveal directions</i></li>
+            {{#if showSouthernSuburbsDirections}}
+              <ul class="text-left">
+                <b>Directions</b>
+                <li>Get on to the N1 heading to Paarl</li>
+                <li>Take exit 10 for Century City Drive/N7 toward Goodwood/Malmesbury</li>
+                <li>Keep left at the fork to continue on Exit 13A, follow signs for N7/Malmesbury and merge onto N7</li>
+                <li>Follow N7 to R393 (After approximately 62km, you will encounter a roundabout - take the second exit to stay on the N7 for another 44km).</li>
+                <li>Turn right onto the R393. After 800m, turn right again. </li>
+                <li>After another 8.4km, turn right. Your destination will be in front of you 500m later.</li>
+              </ul>
+            {{/if}}
+
+            <li {{action (mut showSeaPointDirections) (not showSeaPointDirections)}}><b>Sea Point/Cape Town:</b> Between 2h10 and 2h30min (we recommend 2h45min just to be safe) - <i class="link">click to reveal directions</i></li>
+            {{#if showSeaPointDirections}}
+              <ul class="text-left">
+                <b>Directions</b>
+                <li>Get on to Nelson Mandela Boulevard/N1/N2</li>
+                <li>Merge onto the N1, follow signs for Paarl/Bellville/R27/Milnetron</li>
+                <li>Take exit 10 for Century City Drive/N7 toward Goodwood/Malmesbury</li>
+                <li>Keep left at the fork to continue on Exit 13A, follow signs for N7/Malmesbury and merge onto N7</li>
+                <li>Follow N7 to R393 (After approximately 62km, you will encounter a roundabout - take the second exit to stay on the N7 for another 44km).</li>
+                <li>Turn right onto the R393. After 800m, turn right again. </li>
+                <li>After another 8.4km, turn right. Your destination will be in front of you 500m later.</li>
+              </ul>
+            {{/if}}
+
+            <li {{action (mut showSomersetDirections) (not showSomersetDirections)}}><b>Somerset West:</b> 2h10-2h50 min (we recommend 3 hours just to be safe) - <i class="link">click to reveal directions</i></li>
+            {{#if showSomersetDirections}}
+              <ul class="text-left">
+                <b>Directions</b>
+                <li>Get on to Voortrekker Road, and continue on this road until you merge onto the R45</li>
+                <li>Get onto N7/R45 toward Moorreesburg/Vredenburg</li>
+                <li>Follow N7 to R393 (After approximately 62km, you will encounter a roundabout - take the second exit to stay on the N7 for another 44km).</li>
+                <li>Turn right onto the R393. After 800m, turn right again. </li>
+                <li>After another 8.4km, turn right. Your destination will be in front of you 500m later.</li>
+              </ul>
+            {{/if}}
+
+            <li {{action (mut showWellingDirections) (not showWellingDirections)}}><b>Wellington:</b> Between 1h50min and 2h00 (We recommend 2h15min to be safe) - <i class="link">click to reveal directions</i></li>
+            {{#if showWellingDirections}}
+              <ul class="text-left">
+                <b>Directions</b>
+                <li>Take Hoofweg Rd to Hermon Rd/R44</li>
+                <li>Turn right onto Hermon Rd/R44</li>
+                <li>Turn left onto R46</li>
+                <li>Turn right onto Church Rd/R311 (continue for 32.2km)</li>
+                <li>Turn right onto N7</li>
+                <li>Follow N7 to R393 (After approximately 31.8km, you will encounter a roundabout - take the second exit to stay on the N7 for another 44km).</li>
+                <li>Turn right onto the R393. After 800m, turn right again. </li>
+                <li>After another 8.4km, turn right. Your destination will be in front of you 500m later.</li>
+              </ul>
+            {{/if}}
+
+          </ul>
+        </div>
+
+        <hr class="mt40">
+
+        <div class="event-field">
+          <h3 class="mt40 mb16">Option B: The planner</h3>
+          <p class="mb40">If the thought of setting off on an Amazing Race type adventure doesn’t appeal to you, we’ve decided that you can have the peace of mind you need by clicking the button below for the big venue reveal. If you choose this option, please make sure that you keep it a secret for the other guests you may interact with before the big day.</p>
+
+          <a href="https://www.google.com/maps/place/Cederkloof/@-32.6800529,18.996587,13.01z/data=!4m5!3m4!1s0x0:0xf83135a892b3fe94!8m2!3d-32.67562!4d19.01111" target="_blank" class="btn s-s -i">Reveal venue</a>
+        </div>
+
+
+        <hr class="mt40">
+
+        <h2 class="mt40">Event details</h2>
+
+        <div class="event-field">
+          <h3>Date</h3>
+          <p>{{event.date}}</p>
+        </div>
+
+        <div class="event-field">
+          <h3>Time</h3>
+          <p>{{event.time}}</p>
+          {{#if event.timeNotes}}
+            <p class="note">{{event.timeNotes}}</p>
+          {{/if}}
+        </div>
+
+
+        {{#if event.cateringNote}}
+          <div class="event-field">
+            <i>{{event.cateringNote}}</i>
+          </div>
+        {{/if}}
+
+        <div class="event-field">
+          <h3>Dress code</h3>
+          <p>{{event.dressCode}}</p>
+        </div>
+
+        <div class="event-field">
+          {{#if userEventNotes}}
+            <p class="note mb16">When you are done you can just save everything at the same time below.</p>
+            {{#each userEventNotes as |eventNote|}}
+              {{textarea value=eventNote.note placeholder="Dietary requirements? Other info you want to let us know about? Feel free to leave that here."}}
+              <button class="btn s-s -i {{if removingNote 'disabled'}}" {{action 'removeNote' eventNote}}>Remove note</button>
+            {{/each}}
+          {{else}}
+            <p class="note mb16">{{event.userNotesNote}}</p>
+            <button class="btn s-s -i {{if addingNote 'disabled'}}" {{action 'newNote'}}>Add note</button>
+          {{/if}}
+        </div>
+
+
+        <div class="buttons mt48">
+          <button class="btn {{if rsvp.saving 'disabled'}}" {{action 'saveCurrentUser' target=rsvp}}>{{#if rsvp.saving}}Saving{{else}}Save{{/if}}</button>
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="event-field">
-      <h3>Venue</h3>
-      <p>{{simple-format event.locationName}}</p>
-      {{#if event.locationLink}}
-        (<a href="{{event.locationLink}}" target="_blank">Directions</a>)
-      {{/if}}
-      {{#if event.locationNotes}}
-        <p class="note mt16">{{simple-format event.locationNotes}}</p>
-      {{/if}}
-    </div>
 
-    {{#if event.cateringNote}}
+{{else}}
+
+  <div class="rsvp-container">
+    <div class="event-details">
+      <h1>{{event.displayName}}</h1>
+      <div class="description">{{simple-format event.description}}</div>
+
       <div class="event-field">
-        <i>{{event.cateringNote}}</i>
+        <h3>Date</h3>
+        <p>{{event.date}}</p>
       </div>
-    {{/if}}
 
-    <div class="event-field">
-      <h3>Dress code</h3>
-      <p>{{event.dressCode}}</p>
-    </div>
-
-    <div class="event-field">
-      <h3>RSVP by</h3>
-      <p>{{moment-format event.rsvpByDate 'Do MMMM YYYY'}}</p>
-    </div>
-
-    {{#if event.whatToPack}}
-      <div class="event-field highlighted">
-        <h3>What to pack</h3>
-        <p>{{simple-format event.whatToPack}}</p>
+      <div class="event-field">
+        <h3>Time</h3>
+        <p>{{event.time}}</p>
+        {{#if event.timeNotes}}
+          <p class="note">{{event.timeNotes}}</p>
+        {{/if}}
       </div>
-    {{/if}}
 
-    <div class="event-field mt48">
-      <h3>RSVP now</h3>
-      <p class="note">Please RSVP for all the members listed in your party here</p>
-      <div class="x-check-list">
-        {{check-toggle-item user=currentUser event=event}}
-
-        {{#each currentUser.party as |member|}}
-          {{check-toggle-item user=member event=event}}
-        {{/each}}
+      <div class="event-field">
+        <h3>Venue</h3>
+        <p>{{simple-format event.locationName}}</p>
+        {{#if event.locationLink}}
+          (<a href="{{event.locationLink}}" target="_blank">Directions</a>)
+        {{/if}}
+        {{#if event.locationNotes}}
+          <p class="note mt16">{{simple-format event.locationNotes}}</p>
+        {{/if}}
       </div>
-    </div>
 
-
-    <div class="event-field">
-      {{#if userEventNotes}}
-        <p class="note mb16">When you are done you can just save everything at the same time below.</p>
-        {{#each userEventNotes as |eventNote|}}
-          {{textarea value=eventNote.note placeholder="Dietary requirements? Other info you want to let us know about? Feel free to leave that here."}}
-          <button class="btn s-s -i {{if removingNote 'disabled'}}" {{action 'removeNote' eventNote}}>Remove note</button>
-        {{/each}}
-      {{else}}
-        <p class="note mb16">{{event.userNotesNote}}</p>
-        <button class="btn s-s -i {{if addingNote 'disabled'}}" {{action 'newNote'}}>Add note</button>
+      {{#if event.cateringNote}}
+        <div class="event-field">
+          <i>{{event.cateringNote}}</i>
+        </div>
       {{/if}}
-    </div>
+
+      <div class="event-field">
+        <h3>Dress code</h3>
+        <p>{{event.dressCode}}</p>
+      </div>
+
+      <div class="event-field">
+        <h3>RSVP by</h3>
+        <p>{{moment-format event.rsvpByDate 'Do MMMM YYYY'}}</p>
+      </div>
+
+      {{#if event.whatToPack}}
+        <div class="event-field highlighted">
+          <h3>What to pack</h3>
+          <p>{{simple-format event.whatToPack}}</p>
+        </div>
+      {{/if}}
+
+      <div class="event-field mt48">
+        <h3>RSVP now</h3>
+        <p class="note">Please RSVP for all the members listed in your party here</p>
+        <div class="x-check-list">
+          {{check-toggle-item user=currentUser event=event}}
+
+          {{#each currentUser.party as |member|}}
+            {{check-toggle-item user=member event=event}}
+          {{/each}}
+        </div>
+      </div>
 
 
-    <div class="buttons mt48">
-      <button class="btn {{if rsvp.saving 'disabled'}}" {{action 'saveCurrentUser' target=rsvp}}>{{#if rsvp.saving}}Saving{{else}}Save{{/if}}</button>
+      <div class="event-field">
+        {{#if userEventNotes}}
+          <p class="note mb16">When you are done you can just save everything at the same time below.</p>
+          {{#each userEventNotes as |eventNote|}}
+            {{textarea value=eventNote.note placeholder="Dietary requirements? Other info you want to let us know about? Feel free to leave that here."}}
+            <button class="btn s-s -i {{if removingNote 'disabled'}}" {{action 'removeNote' eventNote}}>Remove note</button>
+          {{/each}}
+        {{else}}
+          <p class="note mb16">{{event.userNotesNote}}</p>
+          <button class="btn s-s -i {{if addingNote 'disabled'}}" {{action 'newNote'}}>Add note</button>
+        {{/if}}
+      </div>
+
+
+      <div class="buttons mt48">
+        <button class="btn {{if rsvp.saving 'disabled'}}" {{action 'saveCurrentUser' target=rsvp}}>{{#if rsvp.saving}}Saving{{else}}Save{{/if}}</button>
+      </div>
+
     </div>
 
   </div>
-
-</div>
+{{/if}}

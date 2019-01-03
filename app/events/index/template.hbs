@@ -5,11 +5,14 @@
 
   <div class="events">
     {{#each currentUser.invitedEvents as |event|}}
-      <div class="event-listing">
-        <h3>{{event.displayName}}</h3>
-        <span class="status">{{event-status event=event user=currentUser}}</span>
-        {{#link-to 'events.event' event.id class="btn s-s"}}RSVP{{/link-to}}
-      </div>
+      {{#if event.isEnabled}}
+        <div class="event-listing">
+          <h3>{{event.displayName}}</h3>
+          {{!-- <span class="status">{{event-status event=event user=currentUser}}</span> --}}
+          <span class="status">You have an update!</span>
+          {{#link-to 'events.event' event.id class="btn s-s"}}View{{/link-to}}
+        </div>
+      {{/if}}
     {{/each}}
   </div>
 
