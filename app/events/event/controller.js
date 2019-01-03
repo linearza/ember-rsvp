@@ -28,12 +28,12 @@ export default Controller.extend({
   actions: {
     selectOptionA() {
       this.toggleProperty('selectedOptionA');
-      this.set('selectedOptionB', false);
+      // this.set('selectedOptionB', false);
     },
 
     selectOptionB() {
       this.toggleProperty('selectedOptionB');
-      this.set('selectedOptionA', false);
+      // this.set('selectedOptionA', false);
     },
 
     newNote() {
