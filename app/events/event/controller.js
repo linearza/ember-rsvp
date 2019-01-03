@@ -26,6 +26,16 @@ export default Controller.extend({
   }),
 
   actions: {
+    selectOptionA() {
+      this.toggleProperty('selectedOptionA');
+      this.set('selectedOptionB', false);
+    },
+
+    selectOptionB() {
+      this.toggleProperty('selectedOptionB');
+      this.set('selectedOptionA', false);
+    },
+
     newNote() {
       if (this.get('addingNote')) {
         return;

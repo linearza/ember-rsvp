@@ -120,6 +120,22 @@ textarea{
 }
 
 .link{
-  color: lighten(#d4a928, 10%);
+  // color: $blue;
   font-weight: 700;
+  position: relative;
+  display: inline-block;
+  &:after{
+    content: '';
+    width: 100%;
+    height:1px;
+    background: $white;
+    top: 100%;
+    left: 0;
+    position: absolute;
+  }
+  &:before{
+    content: '>';
+    left: 105%;
+    position: absolute;
+  }
 }

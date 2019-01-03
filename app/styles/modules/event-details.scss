@@ -26,7 +26,25 @@
       text-align: left;
       h3 {
         margin-bottom: 12px;
+        font-size: 20px;
       }
+    }
+  }
+  .big-button{
+    border: 2px solid $white;
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 40px;
+    // background: #488eca;
+    h3{
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba($white, 20%);
+      font-weight: 300;
+      font-size: 24px;
+    }
+    &.expanded{
+      border-color: $gold;
+      background: $gold;
     }
   }
   .buttons{
